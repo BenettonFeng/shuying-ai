@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>檸檬手作｜陪你把 AI 變成生活技能</title>
+  <style>
+    :root {
+      --bg: #fff8d6;
+      --card: #ffffff;
+      --text: #2f2a2a;
+      --muted: #6a6464;
+      --green: #5d9300;
+      --green-dark: #486f00;
+      --yellow: #e0b100;
+      --yellow-deep: #c79500;
+      --line: #e8d37a;
+      --soft: #fffdf2;
+      --shadow: 0 12px 26px rgba(0,0,0,0.08);
+      --radius: 28px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+      background: linear-gradient(to bottom, #fff5bf, #fffbe8 42%, #ffffff);
+      color: var(--text);
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(255,255,255,0.93);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 0; gap: 20px;
+    }
+    .brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
+    .brand img {
+      width: 64px; height: 64px; border-radius: 999px; object-fit: cover;
+      border: 3px solid #d8eb95; background: #fff; flex-shrink: 0;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    }
+    .brand-title { font-size: 2rem; font-weight: 900; line-height: 1.1; }
+    .brand-sub { color: var(--muted); font-size: 1rem; margin-top: 4px; }
+    .menu { display: flex; gap: 28px; font-size: 1.02rem; font-weight: 800; flex-wrap: wrap; }
+    .hero {
+      padding: 58px 0 48px;
+      background: radial-gradient(circle at top right, rgba(224,177,0,0.12), transparent 24%),
+                  radial-gradient(circle at left top, rgba(93,147,0,0.10), transparent 20%),
+                  var(--bg);
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 44px; align-items: center; }
+    .pill {
+      display: inline-block; background: #fff; color: var(--green);
+      border: 1px solid #dfe9b5; border-radius: 999px; padding: 12px 20px;
+      font-size: 1rem; font-weight: 900; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    h1 {
+      font-size: clamp(3rem, 7vw, 5.15rem); line-height: 1.02;
+      margin: 26px 0 20px; font-weight: 900; letter-spacing: -1px;
+    }
+    h1 .green { color: var(--green); }
+    .hero p {
+      font-size: 1.2rem; line-height: 1.9; color: #5d5656;
+      max-width: 680px; margin: 0;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+    .tag {
+      background: #fff; border: 1px solid #ddd; border-radius: 999px;
+      padding: 14px 22px; font-size: 1rem; font-weight: 800;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+    }
+    .hero-card {
+      background: #fff; border: 1px solid #efdf8b; border-radius: 34px;
+      padding: 28px; box-shadow: var(--shadow);
+    }
+    .hero-photo-wrap {
+      background: radial-gradient(circle at center, #fffef8, #fff6cc);
+      border-radius: 28px; display: flex; align-items: center; justify-content: center;
+      min-height: 540px; padding: 24px;
+    }
+    .hero-photo {
+      width: min(100%, 430px); aspect-ratio: 1 / 1; border-radius: 28px;
+      object-fit: cover; box-shadow: 0 10px 24px rgba(0,0,0,0.10); background: #fff;
+    }
+    section.block { padding: 58px 0; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .card {
+      background: var(--card); border-radius: var(--radius); padding: 34px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05); border: 1px solid #efefef;
+    }
+    .soft-card { background: linear-gradient(135deg, #fff3b0, #f4fbdd); border: 1px solid #ecd36c; }
+    .eyebrow { color: var(--green); font-size: 0.95rem; font-weight: 900; letter-spacing: 0.4px; margin-bottom: 12px; }
+    h2 { font-size: clamp(2.2rem, 4vw, 3.25rem); line-height: 1.1; margin: 0 0 18px; font-weight: 900; }
+    .card p, .card li { font-size: 1.12rem; line-height: 1.95; color: #5b5555; margin: 0; }
+    .spirit-list { display: grid; gap: 18px; }
+    .spirit-item { background: rgba(255,255,255,0.86); border-radius: 22px; padding: 18px 22px; font-size: 1.08rem; line-height: 1.8; }
+    .section-head { text-align: center; margin-bottom: 30px; }
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+    .service-card {
+      background: #fff; border-radius: 28px; padding: 30px 28px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05); border: 1px solid #efefef;
+    }
+    .icon { font-size: 2.5rem; margin-bottom: 14px; }
+    h3 { font-size: 1.85rem; line-height: 1.2; margin: 0 0 18px; font-weight: 900; }
+    .contact-box {
+      background: linear-gradient(90deg, #679f00, #d9a800); color: white;
+      border-radius: 34px; padding: 38px; box-shadow: var(--shadow);
+    }
+    .contact-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 26px; align-items: center; }
+    .contact-box p { color: rgba(255,255,255,0.96); font-size: 1.12rem; line-height: 1.95; margin: 0; }
+    .qr-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .qr-card {
+      background: #fff; color: var(--text); border-radius: 26px; padding: 18px;
+      text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    }
+    .qr-card img {
+      width: 100%; max-width: 220px; margin: 0 auto; border-radius: 14px;
+      object-fit: contain; background: #fff;
+    }
+    .qr-title { margin-top: 14px; color: var(--green-dark); font-size: 1.05rem; font-weight: 900; }
+    footer {
+      border-top: 1px solid #ececec; background: rgba(255,255,255,0.86);
+      padding: 22px 0 30px; color: var(--muted); font-size: 0.98rem;
+    }
+    @media (max-width: 960px) {
+      .hero-grid, .grid-2, .services, .contact-grid { grid-template-columns: 1fr; }
+      .menu { display: none; }
+      .hero-photo-wrap { min-height: auto; }
+    }
+    @media (max-width: 640px) {
+      .container { width: min(100% - 20px, 1180px); }
+      .brand img { width: 54px; height: 54px; }
+      .brand-title { font-size: 1.8rem; }
+      .brand-sub { font-size: 0.94rem; }
+      .pill, .tag { font-size: 0.95rem; }
+      .card, .service-card, .contact-box { padding: 24px; }
+      .qr-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 36px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="lemon-teacher.png" alt="檸檬手作老師" />
+        <div>
+          <div class="brand-title">檸檬手作</div>
+          <div class="brand-sub">AI 教學 × 粉絲頁作品分享 × 檸檬手作老師品牌</div>
+        </div>
+      </div>
+      <nav class="menu">
+        <a href="#about">關於我</a>
+        <a href="#services">課程服務</a>
+        <a href="#contact">聯絡方式</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="pill">🍋 可愛上手・溫暖陪跑・實用應用</div>
+        <h1>檸檬手作老師<br><span class="green">陪你把 AI 變成生活技能</span></h1>
+        <p>
+          我是 Shu Ying，經營「檸檬手作」。我希望用溫暖、生活化的方式，讓更多人輕鬆學會 AI。
+          很多人覺得 AI 很困難，但其實只要有人陪著學，AI 也可以變成一種生活技能。
+        </p>
+        <div class="tags">
+          <div class="tag">桃園地區社區實體課程</div>
+          <div class="tag">線上教學</div>
+          <div class="tag">樂齡 AI 手機應用</div>
+          <div class="tag">粉絲頁作品分享</div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-photo-wrap">
+          <img class="hero-photo" src="lemon-teacher.png" alt="檸檬手作主視覺" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="block">
+    <div class="container grid-2">
+      <div class="card">
+        <div class="eyebrow">ABOUT</div>
+        <h2>關於檸檬手作</h2>
+        <p>
+          檸檬手作不是冷冰冰的科技網站，而是一個把 AI 轉譯成生活語言的學習空間。
+          這裡由檸檬手作老師陪你一起探索 AI，讓原本覺得 AI 很複雜的人，也能放心學、輕鬆學、慢慢學會。
+        </p>
+      </div>
+      <div class="card soft-card">
+        <div class="eyebrow">品牌精神</div>
+        <div class="spirit-list">
+          <div class="spirit-item">溫暖：讓學習不緊繃，像聊天一樣慢慢懂。</div>
+          <div class="spirit-item">實用：把 AI 變成真正用得上的生活技能。</div>
+          <div class="spirit-item">陪伴：一步一步帶著你學，不急、不硬、不壓迫。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="block">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">SERVICES</div>
+        <h2>課程與服務</h2>
+      </div>
+      <div class="services">
+        <div class="service-card">
+          <div class="icon">📱</div>
+          <h3>樂齡 AI 手機課</h3>
+          <p>用生活化、好懂、無壓力的方式，陪長輩從手機開始接觸 AI。</p>
+        </div>
+        <div class="service-card">
+          <div class="icon">📝</div>
+          <h3>AI 教學內容設計</h3>
+          <p>協助整理課程內容、教學主題與教材方向，讓 AI 教學更清楚、更好懂。</p>
+        </div>
+        <div class="service-card">
+          <div class="icon">✨</div>
+          <h3>AI 應用諮詢</h3>
+          <p>協助整理教材、工作流程與實用工具，讓 AI 真的能派上用場。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="block">
+    <div class="container">
+      <div class="contact-box">
+        <div class="contact-grid">
+          <div>
+            <div class="eyebrow" style="color:#f6ffbd;">CONTACT</div>
+            <h2>想合作、上課，或看看更多作品？</h2>
+            <p>
+              歡迎透過 Facebook 粉絲頁與 LINE 聯絡我，也可以先到粉絲頁看看目前的作品分享、教學內容與檸檬手作老師的最新動態。
+            </p>
+          </div>
+          <div class="qr-grid">
+            <div class="qr-card">
+              <img src="facebook-qr.jpeg" alt="Facebook 粉絲頁 QR Code" />
+              <div class="qr-title">Facebook 粉絲頁</div>
+            </div>
+            <div class="qr-card">
+              <img src="line-qr.jpg" alt="LINE QR Code" />
+              <div class="qr-title">LINE 聯絡</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© 2026 檸檬手作 Lemon Handmade</div>
+  </footer>
+</body>
+</html>
