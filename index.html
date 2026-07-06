@@ -1,598 +1,1065 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant-TW">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>檸檬手作｜檸檬手作老師陪你把 AI 變成生活技能</title>
-  <style>
-    :root {
-      --bg: #fff7d8;
-      --bg-soft: #fffdf2;
-      --card: #ffffff;
-      --text: #2f2a2a;
-      --muted: #6a6464;
-      --green: #5f9800;
-      --green-dark: #4d7d00;
-      --yellow: #e0ad00;
-      --line: #ead889;
-      --shadow: 0 12px 28px rgba(0,0,0,0.08);
-      --radius: 28px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
-      background: linear-gradient(to bottom, #fff6cf, #fffdf4 42%, #ffffff);
-      color: var(--text);
-    }
-    img { max-width: 100%; display: block; }
-    a { color: inherit; text-decoration: none; }
+<!-- ===== SEO ===== -->
+<title>馮淑英 Shu Ying｜AI 教學顧問・企業 AI 客製內訓・AI 協作網站與數位名片｜桃園</title>
+<meta name="description" content="我把複雜的 AI，翻譯成你的團隊做得到的步驟。提供企業 AI 客製內訓、職場 AI 工作流設計、AI 個人家教與實作陪跑、AI 協作網站與數位名片製作、樂齡手機 AI 課程。從 ChatGPT、Gemini、NotebookLM 到提示詞範本，協助團隊把 AI 真正用進日常工作。桃園出發，全台可洽。">
+<meta name="keywords" content="AI 教學, AI 企業內訓, AI 客製課程, ChatGPT 課程, Gemini 課程, NotebookLM 教學, AI 工作流, AI 提示詞課程, 樂齡 AI, 手機 AI 課程, 桃園 AI 課程, 企業 AI 應用, AI 網站製作, AI 協作網頁設計, 數位名片製作, 個人品牌網站, 顧問網站設計, SEO 網頁文案, AI 家教, 一對一 AI 教學, AI 實作陪跑, ChatGPT 家教, Gemini 家教, 店家 AI 課程, 服裝店 AI 教學, 服飾店老闆娘 AI 課程, 土地代書 AI 應用, 專業服務業 AI 課程, 個人 AI 課程, AI 簡報教學">
+<meta name="author" content="馮淑英 Shu Ying">
+<link rel="canonical" href="https://benettonfeng.github.io/shuying-ai/">
 
-    .container {
-      width: min(1180px, calc(100% - 32px));
-      margin: 0 auto;
-    }
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:url" content="https://benettonfeng.github.io/shuying-ai/">
+<meta property="og:title" content="馮淑英 Shu Ying｜我把複雜的 AI，翻譯成你的團隊做得到的步驟">
+<meta property="og:description" content="企業 AI 客製內訓・職場 AI 工作流設計・AI 協作網站與數位名片・樂齡手機 AI 課程。課前訪談客製教材，課後帶走提示詞範本。">
+<meta property="og:image" content="https://benettonfeng.github.io/shuying-ai/hero-ai-workstation.png">
+<meta property="og:site_name" content="檸檬手作 Lemon Handcraft Studio">
+<meta name="twitter:card" content="summary_large_image">
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      background: rgba(255,255,255,0.94);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "檸檬手作｜馮淑英 AI 教學顧問",
+  "alternateName": "Lemon Handcraft Studio",
+  "url": "https://benettonfeng.github.io/shuying-ai/",
+  "email": "benettonfeng@gmail.com",
+  "telephone": "+886-919-339-504",
+  "areaServed": "台灣（桃園出發）",
+  "founder": { "@type": "Person", "name": "馮淑英", "alternateName": "Shu Ying" },
+  "knowsAbout": ["企業 AI 內訓", "ChatGPT 教學", "Gemini 教學", "NotebookLM 教學", "AI 工作流設計", "樂齡 AI 課程", "AI 教材設計", "AI 協作網站製作", "數位名片製作"],
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "企業 AI 客製內訓" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "職場 AI 工作流設計" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI 協作網站與數位名片製作" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI 教材與課程設計" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI 個人家教與實作陪跑" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "樂齡與社區手機 AI 課程" } }
+  ]
+}
+</script>
 
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 18px 0;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      min-width: 0;
-    }
+<style>
+/* ============================================================
+   設計代幣｜教學設計職人風
+   紙感底・墨藍・檸檬金螢光筆・霧綠・暖杏便籤
+   ============================================================ */
+:root{
+  --paper:#FBF9F4;
+  --ink:#233A5C;
+  --ink-deep:#1A2C48;
+  --ink-soft:#E9EDF3;
+  --gold:#E0A82E;
+  --gold-hl:rgba(224,168,46,.32);   /* 螢光筆 */
+  --gold-soft:#F5E9D4;              /* 便籤 */
+  --sage:#7E9B84;
+  --sage-soft:#EDF2EC;
+  --text:#2B2E33;
+  --muted:#5D6470;
+  --line:#E4E0D6;
+  --serif:"Noto Serif TC", serif;
+  --sans:"Noto Sans TC", -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --shadow:0 2px 12px rgba(35,58,92,.08);
+  --maxw:1060px;
+}
 
-    .brand img {
-      width: 68px;
-      height: 68px;
-      border-radius: 999px;
-      object-fit: cover;
-      border: 3px solid #d9eb8e;
-      background: #fff;
-      flex-shrink: 0;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-    }
+/* ---------- 基礎（mobile-first） ---------- */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  color:var(--text);
+  background:var(--paper);
+  font-size:16px;
+  line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:68px; /* 預留手機 sticky CTA 空間 */
+}
+img{max-width:100%;display:block}
+a{color:var(--ink);text-decoration:none}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 
-    .brand-title {
-      font-size: 2.2rem;
-      font-weight: 900;
-      line-height: 1.05;
-    }
+.container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+section{padding:60px 0}
 
-    .brand-sub {
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 1.02rem;
-    }
+h1,h2,h3,h4{font-family:var(--serif);color:var(--ink);line-height:1.45}
+h1{font-size:1.72rem;font-weight:900;letter-spacing:.01em}
+h2{font-size:1.42rem;font-weight:700;margin-bottom:12px}
+h3{font-size:1.12rem;font-weight:700}
+.lead{color:var(--muted);font-size:1rem}
+p + p{margin-top:12px}
 
-    .menu {
-      display: flex;
-      gap: 30px;
-      font-size: 1.05rem;
-      font-weight: 900;
-      flex-wrap: wrap;
-    }
+/* 螢光筆標註：全站簽名元素 */
+.hl{background:linear-gradient(transparent 58%, var(--gold-hl) 58%);padding:0 2px}
 
-    .hero {
-      padding: 58px 0 48px;
-      background: linear-gradient(180deg, rgba(255,245,208,0.92), rgba(255,251,237,0.95));
-      border-bottom: 1px solid var(--line);
-    }
+/* 區塊眉標 */
+.eyebrow{
+  display:flex;align-items:center;gap:10px;
+  font-size:.78rem;letter-spacing:.2em;color:var(--sage);
+  text-transform:uppercase;font-weight:700;margin-bottom:12px;
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--gold)}
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 46px;
-      align-items: center;
-    }
+/* 講義元件：便籤註記 */
+.note{
+  background:var(--gold-soft);
+  border:1px solid #EBD9AE;
+  border-radius:6px;padding:12px 16px;
+  font-size:.9rem;color:#6B5A2E;line-height:1.7;
+}
+.note::before{content:"✎ ";color:var(--gold);font-weight:700}
 
-    .pill {
-      display: inline-block;
-      padding: 12px 24px;
-      border-radius: 999px;
-      background: #fff;
-      color: var(--green);
-      border: 1px solid #dfe6b6;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      font-size: 1rem;
-      font-weight: 900;
-    }
+/* ---------- 統一圖片樣式：圓角＋淡陰影＋紙感邊框 ---------- */
+.img-frame{
+  border-radius:20px;
+  box-shadow:0 12px 32px rgba(35,58,92,.12);
+  border:1px solid rgba(224,168,46,.22);
+  background:#FBF9F4;
+  overflow:hidden;
+}
+.img-frame img{width:100%;display:block}
+.section-visual{margin:26px auto 0;max-width:820px}
+.case-visual{margin:20px 0}
 
-    h1 {
-      margin: 26px 0 20px;
-      font-size: clamp(3.1rem, 7vw, 5.6rem);
-      line-height: 0.98;
-      letter-spacing: -1px;
-      font-weight: 900;
-    }
+/* 按鈕：手機可點性 ≥48px */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:48px;padding:12px 24px;border-radius:8px;
+  font-weight:700;font-size:1rem;border:1.5px solid transparent;
+  transition:transform .15s,background .15s;
+}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--ink);color:#fff;box-shadow:0 4px 12px rgba(35,58,92,.25)}
+.btn-primary:hover{background:var(--ink-deep)}
+.btn-outline{border-color:var(--ink);color:var(--ink);background:#fff}
+.btn-outline:hover{background:var(--ink-soft)}
+.btn-line{background:#06C755;color:#fff}
+.btn-line:hover{background:#05B34D}
+.btn-sm{min-height:44px;padding:10px 18px;font-size:.94rem}
 
-    h1 .green {
-      color: var(--green);
-      display: inline-block;
-      margin-top: 8px;
-    }
+/* ---------- 導覽列 ---------- */
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(251,249,244,.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font-family:var(--serif);font-weight:700;font-size:1.02rem;color:var(--ink);display:flex;align-items:center;gap:8px}
+.brand .mark{width:11px;height:11px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px var(--gold-soft)}
+.nav-toggle{display:block;background:none;border:0;cursor:pointer;padding:10px;min-height:44px}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0}
+.nav-links{
+  list-style:none;display:none;
+  position:absolute;top:60px;left:0;right:0;
+  background:var(--paper);border-bottom:1px solid var(--line);
+  padding:6px 0 12px;
+}
+.nav-links.open{display:block}
+.nav-links li{text-align:center}
+.nav-links a{display:block;padding:13px;font-size:.96rem;font-weight:500}
+.nav-links .nav-cta a{
+  background:var(--ink);color:#fff;border-radius:8px;
+  margin:8px 20px 0;font-weight:700;
+}
 
-    .hero p {
-      margin: 0;
-      max-width: 720px;
-      font-size: 1.22rem;
-      line-height: 1.95;
-      color: #5d5656;
-    }
+/* ---------- ① Hero ---------- */
+.hero{padding:44px 0 52px;background:linear-gradient(180deg,var(--paper) 0%,#F5F2EA 100%)}
+.hero-grid{display:grid;gap:28px}
+.kicker{
+  display:inline-block;font-size:.82rem;font-weight:700;color:var(--ink);
+  background:var(--gold-soft);border:1px solid #EAD9A8;
+  padding:5px 12px;border-radius:99px;margin-bottom:16px;
+}
+.hero h1{margin-bottom:16px}
+.hero .lead{margin-bottom:8px}
+.hero .lead strong{color:var(--ink)}
+.hero-points{list-style:none;margin:18px 0 22px;display:grid;gap:10px}
+.hero-points li{
+  display:flex;gap:10px;align-items:flex-start;
+  font-size:.94rem;line-height:1.7;
+}
+.hero-points li::before{content:"✓";color:var(--sage);font-weight:700;flex:none}
+.cta-row{display:flex;flex-direction:column;gap:12px}
+.cta-row .btn{width:100%}
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 24px;
-    }
+/* 手機版小型分身 */
+.avatar-mini{
+  width:76px;height:76px;border-radius:50%;
+  border:3px solid #fff;box-shadow:var(--shadow);
+  background:var(--gold-soft);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:14px;overflow:hidden;
+}
+.avatar-mini img{width:100%;height:100%;object-fit:cover}
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 24px;
-      border-radius: 999px;
-      font-weight: 900;
-      font-size: 1rem;
-      transition: transform 0.15s ease;
-    }
+/* Hero 主視覺：手機縮成置中圓角圖卡，桌機放右側 */
+.hero-visual{max-width:320px;margin:28px auto 0}
 
-    .btn:hover { transform: translateY(-1px); }
+/* ---------- ② 情境卡分流 ---------- */
+.situations{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sit-grid{display:grid;gap:16px;margin-top:24px}
+.sit-card{
+  background:var(--paper);border:1px solid var(--line);border-radius:10px;
+  padding:24px 22px;box-shadow:var(--shadow);
+  display:flex;flex-direction:column;gap:10px;
+}
+.sit-card .who{font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--sage)}
+.sit-card h3{font-size:1.08rem;line-height:1.6}
+.sit-card p{font-size:.93rem;color:var(--muted);line-height:1.75}
+.sit-card a{
+  margin-top:auto;font-weight:700;font-size:.94rem;color:var(--ink);
+  display:inline-flex;align-items:center;gap:6px;min-height:44px;
+}
+.sit-card a::after{content:"→";color:var(--gold)}
 
-    .btn-primary {
-      background: linear-gradient(90deg, var(--green), #7ab400);
-      color: #fff;
-      box-shadow: 0 8px 18px rgba(95,152,0,0.24);
-    }
+/* ---------- ③ 四步驟做法 ---------- */
+.method{background:var(--sage-soft)}
+.steps{display:grid;gap:14px;margin-top:26px}
+.step{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:22px;box-shadow:var(--shadow);
+}
+.step .s-no{
+  font-family:var(--serif);font-weight:900;font-size:1.6rem;
+  color:var(--gold);line-height:1;margin-bottom:8px;
+}
+.step h3{font-size:1.05rem;margin-bottom:6px}
+.step p{font-size:.92rem;color:var(--muted);line-height:1.75}
+.method .note{margin-top:20px}
 
-    .btn-secondary {
-      background: #fff;
-      color: var(--green-dark);
-      border: 1px solid #d9dfbf;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
+/* ---------- ④ 服務三分組 ---------- */
+.svc-group{margin-top:30px}
+.svc-group + .svc-group{margin-top:38px}
+.group-head{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:16px;
+}
+.group-head h3{font-size:1.15rem}
+.group-head .for{font-size:.85rem;color:var(--muted)}
+.svc-cards{display:grid;gap:16px}
+.svc-card{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:24px 22px;box-shadow:var(--shadow);
+  display:flex;flex-direction:column;gap:10px;
+}
+.svc-tag{
+  align-self:flex-start;
+  font-family:var(--serif);font-weight:700;font-size:.85rem;
+  background:var(--ink);color:var(--gold);
+  padding:3px 12px;border-radius:4px;
+}
+.svc-card h4{font-size:1.08rem}
+.svc-card ul{list-style:none;display:grid;gap:7px}
+.svc-card li{
+  font-size:.92rem;color:var(--muted);line-height:1.7;
+  padding-left:16px;position:relative;
+}
+.svc-card li::before{
+  content:"";position:absolute;left:0;top:11px;
+  width:6px;height:6px;border-radius:2px;background:var(--gold);
+}
+.svc-solve{
+  font-size:.9rem;font-weight:700;color:var(--ink);
+  background:var(--ink-soft);border-radius:6px;padding:10px 14px;
+}
+.svc-card .btn{margin-top:4px}
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 24px;
-    }
+/* ---------- ⑤ 案例 ---------- */
+.cases{background:#fff;border-top:1px solid var(--line)}
+.case{
+  border:1px solid var(--line);border-radius:12px;
+  background:var(--paper);padding:26px 22px;margin-top:26px;
+  box-shadow:var(--shadow);
+}
+.case-label{
+  display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.1em;
+  color:var(--ink);background:var(--ink-soft);
+  padding:4px 12px;border-radius:99px;margin-bottom:12px;
+}
+.case h3{font-size:1.22rem;margin-bottom:12px}
+.case .result{
+  font-weight:700;color:var(--ink);font-size:1rem;line-height:1.8;
+  border-left:4px solid var(--gold);padding:10px 14px;
+  background:#fff;border-radius:0 8px 8px 0;margin-bottom:14px;
+}
+.case p{font-size:.95rem}
+.case-points{list-style:none;display:grid;gap:7px;margin:14px 0}
+.case-points li{font-size:.92rem;color:var(--muted);padding-left:20px;position:relative;line-height:1.7}
+.case-points li::before{content:"✓";position:absolute;left:0;color:var(--sage);font-weight:700}
+.case-btns{display:flex;flex-direction:column;gap:10px;margin-top:14px}
 
-    .tag {
-      padding: 14px 22px;
-      border-radius: 999px;
-      background: #fff;
-      border: 1px solid #ddd;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.05);
-      font-size: 1rem;
-      font-weight: 800;
-    }
+/* 四堂課收合 */
+details.lesson{
+  background:#fff;border:1px solid var(--line);border-radius:8px;
+  margin-top:10px;overflow:hidden;
+}
+details.lesson summary{
+  cursor:pointer;list-style:none;
+  padding:14px 18px;min-height:48px;
+  display:flex;align-items:center;gap:12px;
+  font-weight:700;color:var(--ink);font-size:.96rem;
+}
+details.lesson summary::-webkit-details-marker{display:none}
+details.lesson summary .l-no{font-family:var(--serif);color:var(--gold);font-weight:900;flex:none}
+details.lesson summary::after{content:"＋";margin-left:auto;color:var(--sage);font-weight:700}
+details.lesson[open] summary::after{content:"－"}
+details.lesson .l-body{padding:0 18px 16px;font-size:.9rem;color:var(--muted);line-height:1.8}
 
-    .hero-card {
-      background: #fff;
-      border: 1px solid #efd97a;
-      border-radius: 38px;
-      padding: 30px;
-      box-shadow: var(--shadow);
-    }
+/* 課後學習紀錄小卡（輔助圖，刻意比案例主視覺小） */
+.memory-card{
+  display:grid;gap:14px;align-items:center;
+  background:#fff;border:1px dashed var(--gold);border-radius:12px;
+  padding:18px;margin-top:18px;
+}
+.memory-card .m-img{max-width:300px;margin:0 auto;border-radius:12px;overflow:hidden;
+  box-shadow:0 8px 20px rgba(35,58,92,.1);border:1px solid rgba(224,168,46,.22)}
+.memory-card .m-img img{width:100%;display:block}
+.memory-card h4{font-family:var(--serif);color:var(--ink);font-size:1rem;margin-bottom:6px}
+.memory-card p{font-size:.9rem;color:var(--muted);line-height:1.8;margin:0}
+.memory-card .m-tag{
+  display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.1em;
+  color:#8A7440;background:var(--gold-soft);padding:3px 10px;border-radius:99px;margin-bottom:8px;
+}
 
-    .hero-photo-wrap {
-      min-height: 560px;
-      padding: 28px;
-      border-radius: 32px;
-      background: radial-gradient(circle at center, #fffef7, #fff7d9 72%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+/* ---------- ⑥ 匿名回饋 ---------- */
+.feedback{background:var(--ink);color:#fff}
+.feedback h2,.feedback h3{color:#fff}
+.feedback .eyebrow{color:#C9D4E4}
+.feedback .lead{color:#C9D4E4}
+.fb-summary{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);
+  border-radius:10px;padding:20px;margin-top:22px;
+  font-size:.94rem;line-height:1.85;color:#E7ECF3;
+}
+.fb-cards{display:grid;gap:14px;margin-top:20px}
+.fb-card{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);
+  border-radius:10px;padding:20px;
+}
+.fb-card .f-stat{
+  font-family:var(--serif);font-weight:900;font-size:1.3rem;
+  color:var(--gold);margin-bottom:8px;line-height:1.4;
+}
+.fb-card p{font-size:.9rem;color:#C9D4E4;line-height:1.75}
+.fb-note{font-size:.8rem;color:#9DAEC6;margin-top:16px}
 
-    .hero-photo {
-      width: min(100%, 460px);
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border-radius: 30px;
-      background: #fff;
-      box-shadow: 0 14px 26px rgba(0,0,0,0.08);
-    }
+/* ---------- ⑦ FAQ ---------- */
+details.faq{
+  background:#fff;border:1px solid var(--line);border-radius:8px;
+  margin-top:12px;overflow:hidden;
+}
+details.faq summary{
+  cursor:pointer;list-style:none;
+  padding:16px 18px;min-height:48px;
+  display:flex;align-items:center;gap:10px;
+  font-weight:700;color:var(--ink);font-size:.98rem;line-height:1.6;
+}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::before{content:"Q";font-family:var(--serif);color:var(--gold);font-weight:900;flex:none}
+details.faq summary::after{content:"＋";margin-left:auto;color:var(--sage);font-weight:700;flex:none}
+details.faq[open] summary::after{content:"－"}
+details.faq .a{padding:0 18px 18px 40px;font-size:.93rem;color:var(--muted);line-height:1.85}
 
-    section.block { padding: 58px 0; }
+/* ---------- ⑧ 關於我 ---------- */
+.about{background:#fff;border-top:1px solid var(--line)}
+.about-grid{display:grid;gap:26px}
+.about .name-line{font-weight:700;color:var(--ink);margin-bottom:10px}
+.about-quote{
+  font-family:var(--serif);font-weight:700;font-size:1.08rem;line-height:1.9;
+  color:var(--ink);max-width:720px;margin-top:6px;
+  border-left:4px solid var(--gold);padding-left:16px;
+}
+.cred-list{list-style:none;margin-top:18px;display:grid;gap:10px}
+.cred-list li{display:flex;gap:10px;font-size:.93rem;line-height:1.75}
+.cred-list li::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--sage);margin-top:11px}
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-    }
+/* ---------- ⑨ 聯絡 ---------- */
+.contact{background:var(--ink-deep);color:#fff}
+.contact h2{color:#fff}
+.contact .eyebrow{color:#9DAEC6}
+.contact .lead{color:#C9D4E4}
+.contact-grid{display:grid;gap:28px;margin-top:28px}
+.ways{display:grid;gap:12px}
+.way{
+  display:flex;align-items:center;gap:14px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);
+  border-radius:10px;padding:16px 18px;color:#fff;min-height:64px;
+}
+a.way:hover{background:rgba(255,255,255,.12)}
+.way .w-icon{
+  flex:none;width:42px;height:42px;border-radius:9px;
+  background:var(--gold);color:var(--ink-deep);
+  display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.05rem;
+}
+.way .w-label{font-size:.78rem;color:#9DAEC6;letter-spacing:.06em}
+.way .w-value{font-weight:700;font-size:.98rem}
+.way .w-sub{font-size:.78rem;color:#9DAEC6;line-height:1.6;display:inline-block;margin-top:2px}
+.promise{
+  margin-top:18px;font-size:.9rem;color:#C9D4E4;
+  border-left:3px solid var(--gold);padding-left:12px;line-height:1.8;
+}
+.qr-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:380px}
+.qr-box{background:#fff;border-radius:10px;padding:12px;text-align:center}
+.qr-box img{border-radius:6px;margin-bottom:8px}
+.qr-box span{font-size:.82rem;color:var(--ink);font-weight:700}
 
-    .card {
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 36px;
-      border: 1px solid #ededed;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
-    }
+footer{
+  background:var(--ink-deep);color:#8FA0BA;
+  border-top:1px solid rgba(255,255,255,.1);
+  padding:22px 0 26px;font-size:.82rem;text-align:center;line-height:1.9;
+}
+footer .brand-ft{color:#C9D4E4;font-family:var(--serif);font-weight:700}
 
-    .soft-card {
-      background: linear-gradient(135deg, #fff2b5, #f4fbdd);
-      border: 1px solid #efd06e;
-    }
+/* ---------- ⑩ 手機 sticky CTA ---------- */
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:200;
+  display:flex;gap:1px;background:var(--line);
+  border-top:1px solid var(--line);
+  box-shadow:0 -4px 14px rgba(35,58,92,.12);
+  transition:transform .25s ease;
+}
+.sticky-cta a{
+  flex:1;min-height:56px;display:flex;align-items:center;justify-content:center;gap:8px;
+  font-weight:700;font-size:1rem;
+}
+.sticky-cta .s-line{background:#06C755;color:#fff}
+.sticky-cta .s-ask{background:var(--ink);color:#fff}
+.sticky-cta.hide{transform:translateY(110%)}
 
-    .eyebrow {
-      color: var(--green);
-      font-size: 0.95rem;
-      font-weight: 900;
-      letter-spacing: 0.4px;
-      margin-bottom: 12px;
-    }
+/* ---------- 進場動畫 ---------- */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .sticky-cta{transition:none}
+}
 
-    h2 {
-      margin: 0 0 18px;
-      font-size: clamp(2.25rem, 4vw, 3.5rem);
-      line-height: 1.08;
-      font-weight: 900;
-    }
+/* ============================================================
+   平板 ≥768px
+   ============================================================ */
+@media(min-width:768px){
+  body{padding-bottom:0}
+  section{padding:80px 0}
+  h1{font-size:2.3rem}
+  h2{font-size:1.7rem}
+  .container{padding:0 28px}
 
-    .card p, .info-note p {
-      margin: 0;
-      font-size: 1.16rem;
-      line-height: 1.95;
-      color: #5b5555;
-    }
+  .nav{height:64px}
+  .nav-toggle{display:none}
+  .nav-links{
+    display:flex !important;position:static;background:none;border:0;padding:0;
+    gap:22px;align-items:center;
+  }
+  .nav-links a{padding:6px 2px;font-size:.92rem}
+  .nav-links .nav-cta a{margin:0;padding:9px 18px;border-radius:6px}
 
-    .spirit-list {
-      display: grid;
-      gap: 18px;
-    }
+  .hero{padding:80px 0}
+  .cta-row{flex-direction:row}
+  .cta-row .btn{width:auto}
+  .sit-grid{grid-template-columns:repeat(3,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .svc-cards{grid-template-columns:repeat(2,1fr)}
+  .svc-cards.single{grid-template-columns:1fr}
+  .fb-cards{grid-template-columns:repeat(3,1fr)}
+  .case{padding:34px}
+  .case-btns{flex-direction:row}
+  .contact-grid{grid-template-columns:1.1fr .9fr;align-items:start}
+  .about-grid{grid-template-columns:300px 1fr;gap:48px;align-items:start}
+  .cred-list{grid-template-columns:1fr 1fr;gap:10px 22px}
+  .about-quote{font-size:1.2rem}
+  .sticky-cta{display:none}
+}
 
-    .spirit-item {
-      padding: 18px 22px;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.86);
-      font-size: 1.08rem;
-      line-height: 1.85;
-    }
-
-    .section-head {
-      text-align: center;
-      margin-bottom: 28px;
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 26px;
-    }
-
-    .service-card {
-      background: #fff;
-      border-radius: 30px;
-      padding: 32px 28px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
-      border: 1px solid #efefef;
-    }
-
-    .icon {
-      font-size: 2.5rem;
-      margin-bottom: 14px;
-    }
-
-    h3 {
-      margin: 0 0 18px;
-      font-size: 1.95rem;
-      line-height: 1.18;
-      font-weight: 900;
-    }
-
-    .service-card p {
-      margin: 0;
-      font-size: 1.12rem;
-      line-height: 1.85;
-      color: #5d5656;
-    }
-
-    .course-detail {
-      margin-top: 36px;
-      background: linear-gradient(135deg, #fffaf0, #f9ffe9);
-      border: 1px solid #eee0ab;
-      border-radius: 30px;
-      padding: 34px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-    }
-
-    .course-detail-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 26px;
-      align-items: start;
-    }
-
-    .bullet-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .bullet-item {
-      background: #fff;
-      border-radius: 18px;
-      padding: 14px 18px;
-      font-size: 1.05rem;
-      line-height: 1.75;
-      border: 1px solid #efe8cf;
-    }
-
-    .course-box {
-      background: #fff;
-      border: 1px solid #efe3b0;
-      border-radius: 24px;
-      padding: 22px;
-    }
-
-    .course-box h4 {
-      margin: 0 0 12px;
-      font-size: 1.28rem;
-      color: var(--green-dark);
-    }
-
-    .course-box p {
-      margin: 0;
-      font-size: 1.02rem;
-      line-height: 1.8;
-      color: #5d5656;
-    }
-
-    .contact-box {
-      background: linear-gradient(90deg, #74aa00, #e0ad00);
-      color: #fff;
-      border-radius: 36px;
-      padding: 40px;
-      box-shadow: var(--shadow);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 26px;
-      align-items: center;
-    }
-
-    .contact-box p {
-      margin: 0;
-      color: rgba(255,255,255,0.96);
-      font-size: 1.15rem;
-      line-height: 1.95;
-    }
-
-    .qr-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-
-    .qr-card {
-      background: #fff;
-      color: var(--text);
-      border-radius: 28px;
-      padding: 18px;
-      text-align: center;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-    }
-
-    .qr-card img {
-      width: 100%;
-      max-width: 220px;
-      margin: 0 auto;
-      object-fit: contain;
-      border-radius: 14px;
-      background: #fff;
-    }
-
-    .qr-title {
-      margin-top: 14px;
-      font-size: 1.05rem;
-      font-weight: 900;
-      color: var(--green-dark);
-    }
-
-    footer {
-      border-top: 1px solid #ececec;
-      background: rgba(255,255,255,0.82);
-      color: var(--muted);
-      font-size: 0.98rem;
-      padding: 22px 0 30px;
-    }
-
-    @media (max-width: 960px) {
-      .hero-grid,
-      .grid-2,
-      .services,
-      .course-detail-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-      .menu { display: none; }
-      .hero-photo-wrap { min-height: auto; }
-    }
-
-    @media (max-width: 640px) {
-      .container { width: min(100% - 20px, 1180px); }
-      .brand img { width: 56px; height: 56px; }
-      .brand-title { font-size: 1.82rem; }
-      .brand-sub { font-size: 0.96rem; }
-      .card, .service-card, .contact-box, .course-detail { padding: 24px; }
-      .pill, .tag, .btn { font-size: 0.95rem; }
-      .qr-grid { grid-template-columns: 1fr; }
-      .hero { padding-top: 38px; }
-    }
-  </style>
+/* ============================================================
+   桌機 ≥1024px
+   ============================================================ */
+@media(min-width:1024px){
+  h1{font-size:2.65rem}
+  .hero-grid{grid-template-columns:1.3fr .7fr;align-items:center;gap:48px}
+  .avatar-mini{display:none}
+  .hero-visual{max-width:none;margin:0}
+  .steps{grid-template-columns:repeat(4,1fr)}
+  .memory-card{grid-template-columns:300px 1fr;gap:22px}
+}
+</style>
 </head>
-<body>
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <img src="lemon-teacher.png" alt="檸檬手作老師" />
+<body id="top">
+
+<!-- ===================== 導覽列 ===================== -->
+<header>
+  <div class="container nav">
+    <a class="brand" href="#top"><span class="mark" aria-hidden="true"></span>檸檬手作｜Shu Ying</a>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false" onclick="toggleNav(this)">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#method">我的做法</a></li>
+      <li><a href="#services">服務項目</a></li>
+      <li><a href="#cases">實作案例</a></li>
+      <li><a href="#faq">合作方式</a></li>
+      <li><a href="#about">關於我</a></li>
+      <li class="nav-cta"><a href="#contact">洽詢企業課程</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ===================== ① Hero ===================== -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <!-- 手機版：小型分身 -->
+      <div class="avatar-mini">
+        <img src="avatar.png" alt="Shu Ying 虛擬分身">
+      </div>
+      <span class="kicker">AI 教學顧問｜企業 AI 客製內訓｜AI 協作網站與數位名片</span>
+      <h1>我把複雜的 AI，<br>翻譯成你的團隊<span class="hl">做得到的步驟</span></h1>
+      <p class="lead">
+        員工聽過很多 AI，工作裡卻用不起來？我從貴公司的<strong>真實工作情境</strong>出發設計課程與範本。
+        近期企業內訓回饋顯示，非技術背景學員在四堂課後，已能具體說出 AI 可應用於<strong>客戶回覆、資料整理、商品情境圖與工作溝通</strong>等場景。
+      </p>
+      <ul class="hero-points">
+        <li>課前訪談，用你們的情境設計教材</li>
+        <li>課後帶走提示詞範本，隔天就能用</li>
+        <li>從長輩到主管，都教得會</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn btn-line" href="https://line.me/ti/p/~benettonfeng" target="_blank" rel="noopener">LINE 免費討論需求</a>
+        <a class="btn btn-outline" href="#services">查看服務與案例</a>
+      </div>
+    </div>
+    <!-- Hero 主視覺：AI 教學設計工作台（首屏圖不做 lazy load） -->
+    <div class="hero-visual img-frame reveal">
+      <img src="hero-ai-workstation.png" alt="Shu Ying 虛擬分身正在規劃 AI 協作教學與企業課程流程">
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ② 情境分流 ===================== -->
+<section class="situations">
+  <div class="container">
+    <div class="eyebrow">Is This You?</div>
+    <h2>你是不是正在遇到這些狀況？</h2>
+    <div class="sit-grid">
+      <div class="sit-card reveal">
+        <span class="who">企業主・HR・教育訓練窗口</span>
+        <h3>「老闆說要導入 AI，但不知道該從哪一堂課開始。」</h3>
+        <p>企業需要的不只是工具介紹，而是一套能連結部門日常工作的 AI 學習設計，讓課堂練習能回到工作現場持續使用。</p>
+        <a href="#svc-biz">看企業內訓怎麼做</a>
+      </div>
+      <div class="sit-card reveal">
+        <span class="who">顧問・講師・接案工作者</span>
+        <h3>「專業很強，但客戶在網路上找不到你。」</h3>
+        <p>專業服務值得被看見。一個能被搜尋、看得懂、願意聯絡的數位門面，讓客戶在需要時能快速找到你、理解你的服務價值。</p>
+        <a href="#svc-web">看網站與名片案例</a>
+      </div>
+      <div class="sit-card reveal">
+        <span class="who">社區大學・樂齡中心・婦女團體</span>
+        <h3>「想開 AI 課，但擔心長輩跟不上。」</h3>
+        <p>樂齡學員適合用放慢的節奏、生活化的語言與一步一步的示範來學習 AI。這正是我最擅長、也最喜歡的教學。</p>
+        <a href="#svc-community">看樂齡課程規劃</a>
+      </div>
+    </div>
+    <div class="section-visual img-frame reveal" style="max-width:680px">
+      <img src="service-audience-icons.png" alt="Shu Ying AI 服務對象包含企業與團隊、顧問與講師、樂齡與社區" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ③ 我的做法 ===================== -->
+<section class="method" id="method">
+  <div class="container">
+    <div class="eyebrow">My Method</div>
+    <h2>為什麼我的課，學員回到工作就能用？</h2>
+    <p class="lead">因為課程從<span class="hl">你們的工作情境</span>開始，再設計成清楚可練習的教材。每一次合作都走過這四個步驟：</p>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="s-no">01</div>
+        <h3>課前訪談</h3>
+        <p>先了解你們的痛點、學員程度與日常工作情境。</p>
+      </div>
+      <div class="step reveal">
+        <div class="s-no">02</div>
+        <h3>客製教材</h3>
+        <p>用你們的真實案例設計課堂練習，不做「假練習」。</p>
+      </div>
+      <div class="step reveal">
+        <div class="s-no">03</div>
+        <h3>步驟化實作</h3>
+        <p>一步一步示範帶做，節奏跟著學員走。</p>
+      </div>
+      <div class="step reveal">
+        <div class="s-no">04</div>
+        <h3>帶走範本</h3>
+        <p>講義、提示詞範本與課後任務完整帶走。</p>
+      </div>
+    </div>
+    <div class="section-visual img-frame reveal">
+      <img src="method-flow.png" alt="Shu Ying 的四步驟 AI 教學設計流程：課前訪談、客製教材、步驟化實作、帶走範本" loading="lazy">
+    </div>
+    <div class="note reveal">每一梯課程結束後，我會以匿名問卷收集回饋，實際用於下一次的教材與教學調整——回饋不是課程的句點，而是下一堂課的起點。</div>
+  </div>
+</section>
+
+<!-- ===================== ④ 服務三分組 ===================== -->
+<section id="services">
+  <div class="container">
+    <div class="eyebrow">Services</div>
+    <h2>服務項目</h2>
+    <p class="lead">依照你的身分找到對應的服務——每一項的共同目標，都是讓 AI <span class="hl">真正被用起來</span>。</p>
+
+    <!-- 企業與團隊 -->
+    <div class="svc-group" id="svc-biz">
+      <div class="group-head">
+        <h3>企業與團隊</h3>
+        <span class="for">適合：中小企業、傳產轉型團隊、行政／業務／採購／客服／人資部門</span>
+      </div>
+      <div class="svc-cards">
+        <div class="svc-card reveal">
+          <span class="svc-tag">服務 A</span>
+          <h4>企業 AI 客製內訓</h4>
+          <ul>
+            <li>依產業、部門與實際工作情境設計課程，採用貼近實際需求的客製教材</li>
+            <li>ChatGPT、Gemini、NotebookLM 與提示詞邏輯實作</li>
+            <li>可規劃 2 小時講座、半日工作坊或多堂系列課</li>
+          </ul>
+          <div class="svc-solve">協助：讓 AI 學習連結日常流程，建立可持續使用的工作方法</div>
+          <a class="btn btn-outline btn-sm" href="#contact">洽詢這項服務</a>
+        </div>
+        <div class="svc-card reveal">
+          <span class="svc-tag">服務 B</span>
+          <h4>職場 AI 工作流設計</h4>
+          <ul>
+            <li>信件撰寫、會議摘要、報告整理、SOP、表單、提案、簡報</li>
+            <li>把日常流程轉成可重複使用的提示詞與範本</li>
+            <li>協助建立部門專屬 AI 助理的概念與做法</li>
+          </ul>
+          <div class="svc-solve">協助：把好用的提示詞整理成範本，讓全部門共用、持續累積</div>
+          <a class="btn btn-outline btn-sm" href="#contact">洽詢這項服務</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 顧問講師個人品牌 -->
+    <div class="svc-group" id="svc-web">
+      <div class="group-head">
+        <h3>顧問・講師・個人品牌</h3>
+        <span class="for">適合：專業顧問、講師、工作室、地方店家、想被客戶找到的中小企業</span>
+      </div>
+      <div class="svc-cards">
+        <div class="svc-card reveal">
+          <span class="svc-tag">服務 C</span>
+          <h4>AI 協作網站與數位名片製作</h4>
+          <ul>
+            <li>一頁式網站：架構規劃、服務文案、SEO 關鍵字、聯絡入口</li>
+            <li>企業形象首頁、個人數位名片、服務介紹頁、案例頁</li>
+            <li>重點是讓客戶<strong>搜尋得到、看得懂、願意聯絡</strong></li>
+          </ul>
+          <div class="svc-solve">協助：建立能被搜尋、被理解、被聯絡的專業數位門面</div>
+          <a class="btn btn-outline btn-sm" href="#case-hys">看 HYS 實際案例</a>
+        </div>
+        <div class="svc-card reveal">
+          <span class="svc-tag">服務 D</span>
+          <h4>AI 教材與課程設計</h4>
+          <ul>
+            <li>課綱、講義、簡報、課前通知、作業牆的完整設計</li>
+            <li>依初學者、中高齡、企業員工設計不同程度版本</li>
+            <li>把 AI 學習變得清楚、有步驟、容易完成</li>
+          </ul>
+          <div class="svc-solve">協助：快速建立清楚、有步驟、可重複使用的 AI 教材</div>
+          <a class="btn btn-outline btn-sm" href="#contact">洽詢這項服務</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 個人與店家實作陪跑 -->
+    <div class="svc-group" id="svc-coaching">
+      <div class="group-head">
+        <h3>個人・店家・專業工作者</h3>
+        <span class="for">適合：服裝服飾店老闆／老闆娘、土地代書、店家經營者、顧問、講師、想一對一學 AI 的成人學員</span>
+      </div>
+      <div class="svc-cards single">
+        <div class="svc-card reveal">
+          <span class="svc-tag">服務 E</span>
+          <h4>AI 個人家教與實作陪跑</h4>
+          <p style="font-size:.93rem;color:var(--muted);line-height:1.8">
+            一對一或小班制的 AI 實作陪跑，依照你的工作與生活需求設計內容——陪你一步一步把 ChatGPT、Gemini、NotebookLM
+            用進自己的實際任務裡。透過實作你會發現，AI 比想像中更容易親近：只要一步一步照著做，就能慢慢上手，
+            從聽懂工具，進一步<span class="hl">完成自己的真實任務</span>。
+          </p>
+          <ul>
+            <li>ChatGPT／Gemini 基礎操作與生活、工作應用</li>
+            <li>NotebookLM 製作簡報、旅遊行程、資料整理與重點摘要</li>
+            <li>服裝服飾店可應用於商品介紹、店家貼文、客戶回覆與內容整理</li>
+            <li>土地代書與專業服務業可應用於資料整理、文件摘要、客戶說明與簡報準備</li>
+            <li>AI 分身、Q 版公仔與個人簡報視覺建立</li>
+            <li>依學員程度調整節奏，一堂一堂完成真實任務</li>
+            <li>每堂課提供可帶走的提示詞與操作步驟</li>
+          </ul>
+          <div class="svc-solve">協助個人、服裝服飾店老闆娘與土地代書等專業工作者，把 AI 從「聽過」變成「自己真的會用」，用自己的題目練習，課後能繼續操作。</div>
+          <a class="btn btn-outline btn-sm" href="#contact">洽詢 AI 家教</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 社區與樂齡 -->
+    <div class="svc-group" id="svc-community">
+      <div class="group-head">
+        <h3>社區與樂齡單位</h3>
+        <span class="for">適合：社區大學、里民課程、樂齡中心、婦女團體、地方組織</span>
+      </div>
+      <div class="svc-cards single">
+        <div class="svc-card reveal">
+          <span class="svc-tag">服務 F</span>
+          <h4>樂齡與社區手機 AI 課程</h4>
+          <ul>
+            <li>手機操作、語音輸入、ChatGPT、Gemini 與生活應用</li>
+            <li>AI 防詐觀念、AI 圖像創作、生活查詢、健康資訊辨識</li>
+            <li>步調放慢、語言生活化，讓長輩安心學、學得會</li>
+          </ul>
+          <div class="svc-solve">協助：用適合樂齡學員的節奏與教法，安心學會、放心使用 AI</div>
+          <a class="btn btn-outline btn-sm" href="#contact">洽詢課程規劃</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ⑤ 實作案例 ===================== -->
+<section class="cases" id="cases">
+  <div class="container">
+    <div class="eyebrow">Case Studies</div>
+    <h2>實作案例</h2>
+    <p class="lead">三種合作成果的真實紀錄：企業 AI 內訓、顧問公司數位門面，以及 AI 個人家教與實作陪跑。</p>
+
+    <!-- 案例一：企業四堂課 -->
+    <div class="case reveal">
+      <span class="case-label">案例｜企業 AI 客製內訓</span>
+      <h3>B2B 服裝代工企業・四堂 AI 客製內訓</h3>
+      <div class="result">
+        四堂課後，匿名回饋顯示，學員開始把 AI 連結到客戶回覆、打樣單整理、商品情境圖與工廠溝通等實務場景——這代表課程不只是介紹工具，而是讓 AI 進入工作流程。
+      </div>
+      <div class="case-visual img-frame reveal">
+        <img src="b2b-fashion-ai-case.png" alt="B2B 服裝代工企業團隊使用 AI 進行客戶回覆、打樣單整理、商品情境圖與工廠溝通" loading="lazy">
+      </div>
+      <p>
+        為 B2B 服裝代工企業設計並執行四堂客製 AI 課程，學員為不同年齡層的非技術背景職員。
+        課程從客戶回覆、打樣單整理、商品情境圖、配色與款式示意、資料整理與工廠溝通等真實工作情境出發，
+        帶入 ChatGPT、Gemini、NotebookLM 與 AI 圖像工具，協助學員把 AI 連結到每天實際會用到的工作。
+      </p>
+      <details class="lesson">
+        <summary><span class="l-no">01</span>AI 基礎素養與工作應用入門</summary>
+        <div class="l-body">AI 工具基本概念、ChatGPT 與 Gemini 操作、提示詞基本結構、語音輸入與文字整理，搭配實際工作情境練習。</div>
+      </details>
+      <details class="lesson">
+        <summary><span class="l-no">02</span>NotebookLM 與資料整理應用</summary>
+        <div class="l-body">影片、文件與資料轉摘要，會議與課程內容整理，資訊圖表與簡報資料產出，提升資料整理效率。</div>
+      </details>
+      <details class="lesson">
+        <summary><span class="l-no">03</span>企業專屬 AI 助理與工作溝通應用</summary>
+        <div class="l-body">建立客戶溝通助理與工廠／供應商溝通助理，依不同對象調整語氣與內容，讓業務、行政與內部溝通更有效率。</div>
+      </details>
+      <details class="lesson">
+        <summary><span class="l-no">04</span>AI 視覺應用與商品情境圖</summary>
+        <div class="l-body">AI 圖像生成的安全與著作權觀念、商品情境圖設計、品牌與產品展示圖，應用於行銷、提案與教材製作。</div>
+      </details>
+      <ul class="case-points" style="margin-top:16px">
+        <li>全系列含簡報、學員講義與課後練習，皆依企業實際業務情境客製</li>
+        <li>初步匿名回饋詳見下方「學員怎麼說」</li>
+      </ul>
+      <div class="memory-card reveal">
+        <div class="m-img">
+          <img src="b2b-fashion-class-memory.png" alt="B2B 服裝代工企業 AI 課程課後手繪風格學習紀錄插畫" loading="lazy">
+        </div>
         <div>
-          <div class="brand-title">檸檬手作</div>
-          <div class="brand-sub">AI 教學 × 粉絲頁作品分享 × 檸檬手作老師品牌</div>
+          <span class="m-tag">課後學習紀錄・手繪插畫</span>
+          <h4>企業 AI 課程課後紀錄</h4>
+          <p>這次課程以 B2B 服裝代工企業的真實工作情境為基礎，從客戶回覆、打樣單整理、商品情境圖、資料整理到工廠溝通，陪學員一步一步把 AI 用回每天的工作裡。</p>
         </div>
       </div>
-      <nav class="menu">
-        <a href="#about">關於我</a>
-        <a href="#services">課程服務</a>
-        <a href="#contact">聯絡方式</a>
-      </nav>
     </div>
-  </header>
 
-  <section class="hero">
-    <div class="container hero-grid">
+    <!-- 案例二：HYS -->
+    <div class="case reveal" id="case-hys">
+      <span class="case-label">案例｜AI 協作網站與數位名片</span>
+      <h3>HYS 衡源永續管理顧問有限公司・企業網站與顧問數位名片</h3>
+      <div class="result">
+        網站上線後，於相關關鍵字的自然搜尋名列前茅，並帶來企業主動詢問。
+      </div>
+      <p>
+        協助專業顧問公司建立企業網站與顧問數位名片，將永續顧問、SBTi、GHG Protocol、
+        ISO 14064、ISO 14067、ISO 50001、ESCO 節能服務與 ISO 管理系統輔導等高度專業的內容，
+        整理成企業客戶容易理解的網站架構與服務文案。
+      </p>
+      <div class="case-visual img-frame reveal">
+        <img src="hys-website-card-mockup.png" alt="HYS 衡源永續企業官網與 Steven Wang 數位名片展示 mockup" loading="lazy">
+      </div>
+      <p>
+        這個案例的重點不只是視覺設計，而是協助專業服務者把顧問語言翻譯成客戶看得懂的內容，
+        建立<strong>可搜尋、可閱讀、可諮詢</strong>的數位門面——讓顧問可以在線上被搜尋、被理解、被聯絡。
+      </p>
+      <ul class="case-points">
+        <li>企業網站與個人數位名片同步規劃，線上形象一致</li>
+        <li>SEO 友善的架構與文案布局，服務項目與聯絡入口清楚明確</li>
+        <li>採 AI 協作方式製作：協助規劃架構、整理內容、產出文案與頁面</li>
+      </ul>
+      <div class="case-btns">
+        <a class="btn btn-primary btn-sm" href="https://hys-esg.com.tw/" target="_blank" rel="noopener">查看企業網站</a>
+        <a class="btn btn-outline btn-sm" href="https://hys-esg.com.tw/card" target="_blank" rel="noopener">查看數位名片</a>
+      </div>
+    </div>
+
+    <!-- 案例三（小型）：AI 個人家教與實作陪跑 -->
+    <div class="case reveal">
+      <span class="case-label">小型實作案例｜AI 個人家教與實作陪跑</span>
+      <h3>服裝服飾店老闆娘 × 土地代書・四堂 AI 實作課</h3>
+      <div class="case-visual img-frame" style="max-width:640px;margin-left:auto;margin-right:auto">
+        <img src="ai-personal-coaching.png" alt="Shu Ying 陪服裝服飾店老闆娘與土地代書老闆娘學習 AI 的實作陪跑示意圖" loading="lazy">
+      </div>
+      <p>
+        曾為服裝服飾店老闆娘與土地代書老闆娘規劃四堂 AI 實作課，內容包含 ChatGPT、Gemini、NotebookLM、
+        AI 分身、商品簡報、旅遊行程規劃、資料整理，以及用電腦播放 PPT。
+        課程特色是依照學員自己的需求設計，每堂課提供提示詞與操作步驟，陪學員一步一步完成真實任務。
+      </p>
+      <p>
+        課後學員感受到，AI 比原本想像中更容易親近；無論是畫圖、製作簡報、整理內容，還是使用 NotebookLM，
+        只要有清楚步驟與實際練習，都能慢慢建立信心並持續使用。
+      </p>
+      <div class="case-btns">
+        <a class="btn btn-outline btn-sm" href="#contact">洽詢 AI 家教</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ⑥ 匿名回饋 ===================== -->
+<section class="feedback">
+  <div class="container">
+    <div class="eyebrow">What Learners Say</div>
+    <h2>學員回饋：AI 開始連結到真實工作</h2>
+    <p class="lead">四堂企業客製課程結束後，以匿名方式收集學員回饋。回饋顯示，學員開始將 AI 連結到客戶回覆、打樣單整理、商品情境圖與資料整理等日常工作。</p>
+
+    <div class="fb-cards">
+      <div class="fb-card reveal">
+        <div class="f-stat">願意主動嘗試 AI</div>
+        <p>匿名回饋顯示，學員不只是聽懂工具，而是開始願意把 AI 帶回自己的日常工作中練習。</p>
+      </div>
+      <div class="fb-card reveal">
+        <div class="f-stat">非技術背景也能上手</div>
+        <p>課程以步驟化示範與真實工作情境設計，讓沒有技術背景的學員也能理解 AI 的使用方法。</p>
+      </div>
+      <div class="fb-card reveal">
+        <div class="f-stat">帶著應用清單離開</div>
+        <p>學員回饋提到，AI 可應用於客戶回覆、打樣單整理、商品示意圖、資料整理與簡報製作等實務場景。</p>
+      </div>
+    </div>
+
+    <div class="fb-summary reveal">
+      匿名回饋顯示，學員對 ChatGPT、Gemini、NotebookLM、AI 圖像生成與商品情境圖等單元印象深刻，
+      也能具體說出 AI 可應用於客戶訊息回覆、打樣單整理、商品圖片與情境圖、文案與產品描述、資料整理、
+      簡報製作，以及與工廠溝通等工作場景。這代表課程不只是介紹工具，而是協助學員把 AI 與自己的工作流程產生連結。
+    </div>
+    <p class="fb-note">※ 回饋以匿名方式收集與呈現，不含任何可識別個人的資訊。</p>
+  </div>
+</section>
+
+<!-- ===================== ⑦ 合作方式 FAQ ===================== -->
+<section id="faq">
+  <div class="container">
+    <div class="eyebrow">How We Work</div>
+    <h2>合作方式與常見問題</h2>
+
+    <details class="faq">
+      <summary>課程時數怎麼安排？</summary>
+      <div class="a">依需求彈性規劃：2 小時主題講座、半日工作坊，或像案例中的多堂系列課程。第一次合作我通常會建議從一場講座或工作坊開始，雙方確認合適再擴大。</div>
+    </details>
+    <details class="faq">
+      <summary>適合多少人參加？</summary>
+      <div class="a">實作型課程建議 30 人以內，我才能照顧到每位學員的操作進度；純講座形式人數可以更多。實際規模我們可以依課程目標一起討論。</div>
+    </details>
+    <details class="faq">
+      <summary>上課地點與形式？</summary>
+      <div class="a">可到貴公司或單位授課，也可線上進行。我從桃園出發，全台皆可洽詢。</div>
+    </details>
+    <details class="faq">
+      <summary>員工完全沒有 AI 基礎，可以上嗎？</summary>
+      <div class="a">可以，而且這正是我最擅長的情況。我長期在社區教完全沒有基礎的長輩使用 AI——能把 AI 教會長輩，就能把 AI 教會任何程度的員工。課程節奏會依課前訪談的程度調查來設計。</div>
+    </details>
+    <details class="faq">
+      <summary>可以上一對一 AI 家教或實作陪跑嗎？</summary>
+      <div class="a">可以。如果你是服裝服飾店老闆／老闆娘、土地代書、個人工作者、顧問、講師，或只是想用自己的題目一步一步學 AI，我可以安排一對一或小班制的 AI 實作陪跑。課程會依照你的需求設計，例如 ChatGPT／Gemini 基礎操作、NotebookLM 簡報與旅遊行程、商品介紹、店家貼文、專業資料整理、AI 分身與簡報播放等。重點是讓你用自己的任務練習，課後能繼續操作。</div>
+    </details>
+    <details class="faq">
+      <summary>怎麼報價？流程是什麼？</summary>
+      <div class="a">第一步是免費的需求討論（LINE 或線上通話約 30 分鐘），了解你們的產業、對象與想解決的問題；接著我會提供課程規劃與報價提案，確認後安排課前訪談與開課。</div>
+    </details>
+    <details class="faq">
+      <summary>課程內容會持續調整嗎？</summary>
+      <div class="a">會。每一梯課程結束後，我都會以匿名問卷收集學員回饋，並實際用於下一次教學調整——例如近期學員反映操作示範節奏可以再放慢、投影字體可以再放大、AI 指令說明可以更逐步，這些都已納入教材與教學設計的修訂。對我來說，回饋不是課程的句點，而是下一堂課的起點。</div>
+    </details>
+  </div>
+</section>
+
+<!-- ===================== ⑧ 關於我 ===================== -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="eyebrow">About</div>
+    <h2>懂 AI，也懂教學；懂工具，也懂企業怎麼工作</h2>
+    <p class="about-quote reveal">我結合<span class="hl">企業實務經驗</span>與<span class="hl">AI 教學能力</span>，協助團隊把 AI 從新工具，轉化成能提升效率、整理資訊、支援溝通的工作方法。</p>
+    <div class="about-grid" style="margin-top:22px">
+      <!-- 品牌分身形象 -->
+      <div class="img-frame reveal" style="max-width:280px;margin:0 auto">
+        <img src="avatar.png" alt="馮淑英 Shu Ying 品牌虛擬分身形象" loading="lazy">
+      </div>
       <div>
-        <div class="pill">🍋 可愛上手・溫暖陪跑・實用應用</div>
-        <h1>檸檬手作老師<br><span class="green">陪你把 AI 變成生活技能</span></h1>
+        <p class="name-line">馮淑英 Shu Ying｜檸檬手作工作室負責人・AI 教學顧問</p>
         <p>
-          我是 Shu Ying，經營「檸檬手作」。我希望用溫暖、生活化的方式，讓更多人輕鬆學會 AI。
-          很多人覺得 AI 很困難，但其實只要有人陪著學，AI 也可以變成一種生活技能。
+          在成為 AI 教學顧問之前，我長期在企業現場工作，累積近 30 年採購、供應商管理、供應商協調、
+          國內外大型機台設備與相關零件專案採購經驗，也熟悉外部合約審核、內部流程文件整理與跨部門協作。
         </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#services">看課程服務</a>
-          <a class="btn btn-secondary" href="#contact">加入 LINE 聯絡</a>
-        </div>
-        <div class="tags">
-          <div class="tag">桃園地區社區實體課程</div>
-          <div class="tag">線上教學</div>
-          <div class="tag">樂齡 AI 手機應用</div>
-          <div class="tag">粉絲頁作品分享</div>
-        </div>
-      </div>
-      <div class="hero-card">
-        <div class="hero-photo-wrap">
-          <img class="hero-photo" src="lemon-teacher.png" alt="檸檬手作老師主視覺" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="block">
-    <div class="container grid-2">
-      <div class="card">
-        <div class="eyebrow">ABOUT</div>
-        <h2>關於檸檬手作</h2>
         <p>
-          檸檬手作不是冷冰冰的科技網站，而是一個把 AI 轉譯成生活語言的學習空間。
-          這裡由檸檬手作老師陪你一起探索 AI，讓原本覺得 AI 很複雜的人，也能放心學、輕鬆學、慢慢學會。
+          這段企業實務經驗，讓我很理解企業在 AI 時代裡真正需要的學習：不只是認識新工具，
+          而是把 AI 轉化成可以<span class="hl">協助工作、提升效率、縮短流程、整理資訊與支援溝通</span>的實用方法。
         </p>
-      </div>
-      <div class="card soft-card">
-        <div class="eyebrow">品牌精神</div>
-        <div class="spirit-list">
-          <div class="spirit-item">溫暖：讓學習不緊繃，像聊天一樣慢慢懂。</div>
-          <div class="spirit-item">實用：把 AI 變成真正用得上的生活技能。</div>
-          <div class="spirit-item">陪伴：一步一步帶著你學，不急、不硬、不壓迫。</div>
+        <p>
+          我過去在處理大型設備、機台零件、供應商資料、採購文件與合約內容時，
+          也逐步將 AI 運用在資料整理、重點摘要、文件初稿、溝通內容與流程梳理上。
+          這些經驗讓我在設計企業 AI 課程時，能從企業真實工作情境出發，
+          協助學員把 AI 轉成<strong>可操作、可複製、可帶回工作現場</strong>的使用方式。
+        </p>
+        <p>
+          我現在專注於企業 AI 客製課程、職場 AI 工作流設計、AI 教材與課程設計、樂齡手機 AI 教學，
+          也協助顧問與中小企業以 AI 協作方式建立網站與數位名片。
+        </p>
+        <p>
+          我的角色，是企業與學員之間的 <span class="hl">AI 轉譯者</span>：一方面理解企業流程與工作現場，
+          另一方面熟悉 AI 工具與教學設計，能把新的 AI 能力轉化成不同程度學員都能理解、練習與應用的工作方法。
+        </p>
+        <ul class="cred-list">
+          <li>近 30 年企業採購、供應商管理、供應商協調與跨部門協作經驗</li>
+          <li>熟悉國內外大型機台設備與相關零件的專案採購流程</li>
+          <li>具備外部合約審核、內部流程文件整理與企業文件管理經驗</li>
+          <li>曾擔任 ISO 內部講師，具備流程文件、內訓與教學轉譯能力</li>
+          <li>能將 AI 實際應用於資料整理、重點摘要、文件初稿、溝通內容與流程梳理</li>
+          <li>結合企業實務經驗與 AI 教學能力，協助企業規劃 AI 學習與導入路徑</li>
+          <li>實際規劃並執行 B2B 服裝代工企業四堂客製 AI 內訓</li>
+          <li>持續開設樂齡與社區 AI 課程，能依不同程度學員調整教學節奏</li>
+          <li>協助專業顧問公司建置企業網站與數位名片，完成 SEO 基礎布局</li>
+        </ul>
+        <div class="note reveal" style="margin-top:22px">
+          <strong>我的出發點</strong>｜AI 正在改變每一個人的工作方式。對企業與個人來說，真正重要的不只是跟上工具更新，
+          而是建立能持續學習、判斷與應用 AI 的能力。我希望運用過去在企業現場累積的實務經驗，
+          加上持續學習與實作 AI 的能力，協助企業把 AI 學習轉化成清楚、可練習、可帶回工作現場的行動步驟。
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="services" class="block">
-    <div class="container">
-      <div class="section-head">
-        <div class="eyebrow">SERVICES</div>
-        <h2>課程與服務</h2>
+<!-- ===================== ⑨ 聯絡 ===================== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="eyebrow">Contact</div>
+    <h2>想為你的團隊設計一堂真正用得上的 AI 課嗎？</h2>
+    <p class="lead">
+      第一步很簡單：用 LINE 告訴我你的產業、對象與想解決的問題，
+      我們先進行約 30 分鐘的<strong style="color:#fff">免費需求討論</strong>，我會協助你規劃合適的方向。
+    </p>
+    <div class="contact-grid">
+      <div>
+        <div class="ways">
+          <a class="way" href="https://line.me/ti/p/~benettonfeng" target="_blank" rel="noopener">
+            <span class="w-icon">L</span>
+            <span><span class="w-label">LINE（回覆最快）</span><br><span class="w-value">加入 LINE，免費討論需求</span></span>
+          </a>
+          <a class="way" href="tel:0919339504">
+            <span class="w-icon">☎</span>
+            <span>
+              <span class="w-label">手機／簡訊</span><br>
+              <span class="w-value">課程與合作洽詢：0919-339-504</span><br>
+              <span class="w-sub">若未接聽，請先傳 LINE 或簡訊，我會在 1～2 個工作日內回覆。</span>
+            </span>
+          </a>
+          <a class="way" href="mailto:benettonfeng@gmail.com">
+            <span class="w-icon">@</span>
+            <span><span class="w-label">Email</span><br><span class="w-value">benettonfeng@gmail.com</span></span>
+          </a>
+          <a class="way" href="https://www.facebook.com/profile.php?id=100065103249213" target="_blank" rel="noopener">
+            <span class="w-icon">f</span>
+            <span><span class="w-label">Facebook 粉絲頁</span><br><span class="w-value">檸檬手作｜教學動態與作品分享</span></span>
+          </a>
+        </div>
+        <p class="promise">收到訊息後，我會在 1〜2 個工作日內回覆。所有討論內容均予保密。</p>
       </div>
-
-      <div class="services">
-        <div class="service-card">
-          <div class="icon">📱</div>
-          <h3>樂齡 AI 手機課</h3>
-          <p>用生活化、好懂、無壓力的方式，陪長輩從手機開始接觸 AI。</p>
+      <div class="qr-row">
+        <div class="qr-box">
+          <img src="line-qr.jpg" alt="LINE QR Code" loading="lazy">
+          <span>LINE 聯絡</span>
         </div>
-        <div class="service-card">
-          <div class="icon">📝</div>
-          <h3>AI 教學內容設計</h3>
-          <p>協助整理課程內容、教學主題與教材方向，讓 AI 教學更清楚、更好懂。</p>
-        </div>
-        <div class="service-card">
-          <div class="icon">✨</div>
-          <h3>AI 應用諮詢</h3>
-          <p>協助整理教材、工作流程與實用工具，讓 AI 真的能派上用場。</p>
-        </div>
-      </div>
-
-      <div class="course-detail">
-        <div class="course-detail-grid">
-          <div>
-            <div class="eyebrow">COURSE INTRO</div>
-            <h2>AI 課程介紹</h2>
-            <div class="info-note">
-              <p>
-                檸檬手作的課程重點，不是只教你按哪個按鈕，而是陪你把 AI 變成真正能用在生活與工作上的技能。
-                課程會依照學員程度，從最生活化的方式開始，慢慢帶你理解、操作、練習。
-              </p>
-            </div>
-            <div class="bullet-list">
-              <div class="bullet-item">適合對象：想學 AI、但不想被艱深術語嚇到的人。</div>
-              <div class="bullet-item">課程方式：實體教學、線上教學、一步一步帶著操作。</div>
-              <div class="bullet-item">課程特色：生活化、實用、清楚、有耐心，適合樂齡與初學者。</div>
-            </div>
-          </div>
-          <div class="course-box">
-            <h4>目前可提供</h4>
-            <p>
-              樂齡 AI 手機課、AI 教學內容設計、AI 應用諮詢。
-              後續也可依需求規劃主題式課程、社區講座或個人教學安排。
-            </p>
-          </div>
+        <div class="qr-box">
+          <img src="fb-qr.png" alt="Facebook 粉絲頁 QR Code" loading="lazy">
+          <span>Facebook 粉絲頁</span>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="contact" class="block">
-    <div class="container">
-      <div class="contact-box">
-        <div class="contact-grid">
-          <div>
-            <div class="eyebrow" style="color:#f0ffb9;">CONTACT</div>
-            <h2>想合作、上課，或看看更多作品？</h2>
-            <p>
-              歡迎透過 Facebook 粉絲頁與 LINE 聯絡，也可以先到粉絲頁看看目前的作品分享、教學內容與檸檬手作老師的最新動態。
-            </p>
-          </div>
-          <div class="qr-grid">
-            <div class="qr-card">
-              <img src="facebook-qr.jpeg" alt="Facebook 粉絲頁 QR Code" />
-              <div class="qr-title">Facebook 粉絲頁</div>
-            </div>
-            <div class="qr-card">
-              <img src="line-qr.jpg" alt="LINE QR Code" />
-              <div class="qr-title">LINE 聯絡</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<footer>
+  <div class="container">
+    <span class="brand-ft">檸檬手作 Lemon Handcraft Studio</span>｜馮淑英 Shu Ying・AI 教學顧問<br>
+    © <span id="year">2026</span> 版權所有・桃園出發，全台可洽
+  </div>
+</footer>
 
-  <footer>
-    <div class="container">© 2026 檸檬手作 Lemon Handmade</div>
-  </footer>
+<!-- ===================== ⑩ 手機 sticky CTA ===================== -->
+<nav class="sticky-cta" id="stickyCta" aria-label="快速聯絡">
+  <a class="s-line" href="https://line.me/ti/p/~benettonfeng" target="_blank" rel="noopener">LINE 聯絡</a>
+  <a class="s-ask" href="#contact">洽詢課程</a>
+</nav>
+
+<script>
+// 手機版選單
+function toggleNav(btn){
+  const links = document.getElementById('navLinks');
+  const open = links.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open);
+}
+document.querySelectorAll('#navLinks a').forEach(a=>{
+  a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open'));
+});
+
+// 進場動畫（尊重減少動態設定）
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io = new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{
+  document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+}
+
+// sticky CTA：滑到聯絡區時自動隱藏，避免與聯絡按鈕重複
+const cta = document.getElementById('stickyCta');
+const contactSec = document.getElementById('contact');
+if(cta && contactSec && 'IntersectionObserver' in window){
+  new IntersectionObserver(es=>{
+    es.forEach(e=>cta.classList.toggle('hide', e.isIntersecting));
+  },{threshold:.15}).observe(contactSec);
+}
+
+// 年份自動更新
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
