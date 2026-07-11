@@ -181,6 +181,39 @@ header{
   padding:5px 12px;border-radius:99px;margin-bottom:16px;
 }
 .hero h1{margin-bottom:16px}
+/* 首屏信任錨點：姓名＋資歷 */
+.hero-id{
+  font-size:.95rem;font-weight:700;color:var(--ink);
+  margin:-6px 0 14px;line-height:1.7;
+  display:flex;align-items:baseline;gap:8px;
+}
+.hero-id::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);flex:none;align-self:center}
+.hero-id-sub{
+  font-size:.85rem;color:var(--muted);margin:-8px 0 14px 16px;line-height:1.7;
+}
+.hero-cardlink{
+  display:inline-block;margin-top:14px;
+  font-size:.88rem;font-weight:500;color:var(--ink);
+  border-bottom:1.5px solid rgba(224,168,46,.6);padding-bottom:2px;
+}
+.hero-cardlink:hover{border-bottom-color:var(--gold)}
+/* 成果快覽籤 */
+.hero-proof{
+  display:flex;flex-wrap:wrap;align-items:center;gap:8px;
+  margin-top:18px;
+}
+.hero-proof .hp-label{
+  font-size:.78rem;font-weight:700;letter-spacing:.12em;color:var(--sage);flex:none;
+}
+.hero-proof a{
+  display:inline-flex;align-items:center;gap:6px;
+  background:#fff;border:1px solid var(--line);border-radius:99px;
+  padding:8px 14px;font-size:.82rem;font-weight:500;color:var(--ink);
+  min-height:38px;line-height:1.4;
+  transition:border-color .15s,background .15s;
+}
+.hero-proof a::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none}
+.hero-proof a:hover{border-color:rgba(224,168,46,.65);background:var(--gold-soft)}
 .hero .lead{margin-bottom:8px}
 .hero .lead strong{color:var(--ink)}
 .hero-points{list-style:none;margin:18px 0 22px;display:grid;gap:10px}
@@ -608,7 +641,7 @@ footer .brand-ft{color:#C9D4E4;font-family:var(--serif);font-weight:700}
 <!-- ===================== 導覽列 ===================== -->
 <header>
   <div class="container nav">
-    <a class="brand" href="#top"><span class="mark" aria-hidden="true"></span>檸檬手作｜Shu Ying</a>
+    <a class="brand" href="#top"><span class="mark" aria-hidden="true"></span>檸檬手作｜Shu Ying AI 教學</a>
     <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false" onclick="toggleNav(this)">
       <span></span><span></span><span></span>
     </button>
@@ -618,7 +651,7 @@ footer .brand-ft{color:#C9D4E4;font-family:var(--serif);font-weight:700}
       <li><a href="#cases">實作案例</a></li>
       <li><a href="#faq">合作方式</a></li>
       <li><a href="#about">關於我</a></li>
-      <li class="nav-cta"><a href="#contact">洽詢企業課程</a></li>
+      <li class="nav-cta"><a href="#contact">討論企業需求</a></li>
     </ul>
   </div>
 </header>
@@ -633,9 +666,13 @@ footer .brand-ft{color:#C9D4E4;font-family:var(--serif);font-weight:700}
       </div>
       <span class="kicker">AI 教學顧問｜企業 AI 客製內訓｜AI 協作網站與數位名片</span>
       <h1>我把複雜的 AI，<br>翻譯成你的團隊<span class="hl">做得到的步驟</span></h1>
+      <p class="hero-id">馮淑英 Shu Ying｜30 年企業採購實務 × AI 教學顧問</p>
+      <p class="hero-id-sub">熟悉供應商管理、跨部門協作與企業工作流程</p>
       <p class="lead">
-        員工聽過很多 AI，工作裡卻用不起來？我從貴公司的<strong>真實工作情境</strong>出發設計課程與範本。
-        近期企業內訓回饋顯示，非技術背景學員在四堂課後，已能具體說出 AI 可應用於<strong>客戶回覆、資料整理、商品情境圖與工作溝通</strong>等場景。
+        員工聽過很多 AI，工作裡卻用不起來？我從貴公司的<strong>真實工作情境</strong>出發，設計能直接練習、帶回工作使用的課程與範本。
+      </p>
+      <p class="lead">
+        讓非技術背景員工，也能把 AI 用在<strong>客戶回覆、資料整理、商品情境圖與工作溝通</strong>。
       </p>
       <ul class="hero-points">
         <li>課前訪談，用你們的情境設計教材</li>
@@ -643,9 +680,16 @@ footer .brand-ft{color:#C9D4E4;font-family:var(--serif);font-weight:700}
         <li>從長輩到主管，都教得會</li>
       </ul>
       <div class="cta-row">
-        <a class="btn btn-line" href="https://line.me/ti/p/~benettonfeng" target="_blank" rel="noopener">LINE 討論需求</a>
-        <a class="btn btn-outline" href="#services">查看服務與案例</a>
-        <a class="btn btn-outline" href="https://benettonfeng.github.io/shuying-ai/card.html">查看我的數位名片</a>
+        <a class="btn btn-line" href="https://line.me/ti/p/~benettonfeng" target="_blank" rel="noopener">討論企業需求</a>
+        <a class="btn btn-outline" href="#cases">查看實作案例</a>
+      </div>
+      <a class="hero-cardlink" href="https://benettonfeng.github.io/shuying-ai/card.html">想快速了解我？查看數位名片 →</a>
+      <!-- 成果快覽：讓 30 秒內的訪客看得到實績，點籤直達案例 -->
+      <div class="hero-proof">
+        <span class="hp-label">實作成果</span>
+        <a href="#cases">企業內訓｜4 堂客製 AI 實作</a>
+        <a href="#case-hys">顧問網站｜帶來企業主動詢問</a>
+        <a href="#cases">學員成果｜AI 導入真實工作</a>
       </div>
     </div>
     <!-- Hero 主視覺：AI 教學設計工作台（首屏圖不做 lazy load） -->
@@ -787,7 +831,7 @@ footer .brand-ft{color:#C9D4E4;font-family:var(--serif);font-weight:700}
             <li>可規劃 2 小時講座、半日工作坊或多堂系列課</li>
           </ul>
           <div class="svc-solve">協助：讓 AI 學習連結日常流程，建立可持續使用的工作方法</div>
-          <a class="btn btn-outline btn-sm" href="#contact">洽詢這項服務</a>
+          <a class="btn btn-outline btn-sm" href="#contact">討論企業內訓需求</a>
         </div>
         <div class="svc-card reveal">
           <span class="svc-tag">服務 B</span>
@@ -798,7 +842,7 @@ footer .brand-ft{color:#C9D4E4;font-family:var(--serif);font-weight:700}
             <li>協助建立部門專屬 AI 助理的概念與做法</li>
           </ul>
           <div class="svc-solve">協助：把好用的提示詞整理成範本，讓全部門共用、持續累積</div>
-          <a class="btn btn-outline btn-sm" href="#contact">洽詢這項服務</a>
+          <a class="btn btn-outline btn-sm" href="#contact">討論工作流程需求</a>
         </div>
       </div>
     </div>
@@ -819,7 +863,7 @@ footer .brand-ft{color:#C9D4E4;font-family:var(--serif);font-weight:700}
             <li>重點是讓客戶<strong>搜尋得到、看得懂、願意聯絡</strong></li>
           </ul>
           <div class="svc-solve">協助：建立能被搜尋、被理解、被聯絡的專業數位門面</div>
-          <a class="btn btn-outline btn-sm" href="#case-hys">看 HYS 實際案例</a>
+          <a class="btn btn-outline btn-sm" href="#case-hys">查看顧問網站成果</a>
         </div>
         <div class="svc-card reveal">
           <span class="svc-tag">服務 D</span>
@@ -947,7 +991,7 @@ footer .brand-ft{color:#C9D4E4;font-family:var(--serif);font-weight:700}
       <span class="case-label">案例｜AI 協作網站與數位名片</span>
       <h3>HYS 衡源永續管理顧問有限公司・企業網站與顧問數位名片</h3>
       <div class="result">
-        網站上線後，於相關關鍵字的自然搜尋名列前茅，並帶來企業主動詢問。
+        網站上線後，已透過自然搜尋帶來企業主動詢問。
       </div>
       <p>
         協助專業顧問公司建立企業網站與顧問數位名片，將永續顧問、SBTi、GHG Protocol、
