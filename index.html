@@ -492,6 +492,115 @@ footer .brand-ft{color:#C9D4E4;font-family:var(--serif);font-weight:700}
   .steps{grid-template-columns:repeat(4,1fr)}
   .memory-card{grid-template-columns:300px 1fr;gap:22px}
 }
+
+/* ============================================================
+   第二階段升級①：卡片 hover / active 互動效果
+   ============================================================ */
+.svc-card,
+.sit-card,
+.case,
+.step,
+.fb-card,
+.map-node{
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+}
+.svc-card:hover,
+.sit-card:hover,
+.step:hover,
+.map-node:hover{
+  transform:translateY(-3px);
+  border-color:rgba(224,168,46,.65);
+  background:linear-gradient(180deg,#fff 0%,#F5E9D4 100%);
+  box-shadow:0 10px 28px rgba(35,58,92,.14);
+}
+.case:hover,
+.fb-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(126,155,132,.75);
+  box-shadow:0 12px 32px rgba(35,58,92,.13);
+}
+.svc-card:active,
+.sit-card:active,
+.case:active,
+.step:active,
+.fb-card:active,
+.map-node:active{
+  transform:translateY(-1px) scale(.995);
+}
+@media(prefers-reduced-motion:reduce){
+  .svc-card,.sit-card,.case,.step,.fb-card,.map-node{transition:none}
+  .svc-card:hover,.sit-card:hover,.case:hover,.step:hover,.fb-card:hover,.map-node:hover,
+  .svc-card:active,.sit-card:active,.case:active,.step:active,.fb-card:active,.map-node:active{transform:none}
+}
+
+/* ============================================================
+   第二階段升級②：Shu Ying AI 服務地圖
+   手機＝直式卡片列表；桌機＝中心節點＋五個服務節點的軌道感版面
+   ============================================================ */
+.svcmap{background:#fff;border-top:1px solid var(--line)}
+.map-stage{
+  position:relative;margin-top:30px;
+  display:flex;flex-direction:column;gap:12px;
+}
+.map-center{
+  position:relative;z-index:1;
+  background:var(--ink);border:3px solid var(--gold);border-radius:16px;
+  padding:22px;text-align:center;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  box-shadow:0 10px 26px rgba(35,58,92,.2);
+}
+.map-center .mc-title{
+  font-family:var(--serif);font-weight:900;font-size:1.15rem;
+  color:#fff;line-height:1.55;
+}
+.map-center .mc-sub{font-size:.8rem;color:#C9D4E4;letter-spacing:.04em;line-height:1.6}
+.map-node{
+  position:relative;z-index:1;
+  display:flex;flex-direction:column;gap:4px;
+  background:var(--paper);border:1px solid var(--line);border-radius:12px;
+  padding:16px 18px;box-shadow:var(--shadow);
+}
+.map-node .mn-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);margin-bottom:2px}
+.map-node .mn-title{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:.99rem;line-height:1.5}
+.map-node .mn-desc{font-size:.84rem;color:var(--muted);line-height:1.65}
+
+/* 平板：中心卡置頂全寬，節點兩欄 */
+@media(min-width:768px){
+  .map-stage{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .map-center{grid-column:1/-1;padding:26px}
+}
+
+/* 桌機：中心圓形節點＋五個服務節點，淡淡軌道感 */
+@media(min-width:1024px){
+  .map-stage{
+    grid-template-columns:1fr 1fr 1fr;
+    grid-template-areas:
+      "n1 .  n2"
+      ".  c  ."
+      "n3 n4 n5";
+    gap:20px 24px;align-items:center;justify-items:center;
+    padding:14px 0;
+  }
+  /* 軌道細線：檸檬金外圈＋霧綠內圈（純裝飾，不搶戲） */
+  .map-stage::before,
+  .map-stage::after{
+    content:"";position:absolute;left:50%;top:50%;
+    transform:translate(-50%,-50%);
+    border-radius:50%;pointer-events:none;
+  }
+  .map-stage::before{width:540px;height:540px;border:1.5px dashed rgba(224,168,46,.42)}
+  .map-stage::after{width:350px;height:350px;border:1.5px dashed rgba(126,155,132,.42)}
+  .map-center{
+    grid-area:c;width:235px;aspect-ratio:1;border-radius:50%;
+    padding:20px;
+  }
+  .map-node{width:100%;max-width:265px}
+  .map-node.n1{grid-area:n1}
+  .map-node.n2{grid-area:n2}
+  .map-node.n3{grid-area:n3}
+  .map-node.n4{grid-area:n4}
+  .map-node.n5{grid-area:n5}
+}
 </style>
 </head>
 <body id="top">
@@ -534,8 +643,9 @@ footer .brand-ft{color:#C9D4E4;font-family:var(--serif);font-weight:700}
         <li>從長輩到主管，都教得會</li>
       </ul>
       <div class="cta-row">
-        <a class="btn btn-line" href="https://line.me/ti/p/~benettonfeng" target="_blank" rel="noopener">LINE 免費討論需求</a>
+        <a class="btn btn-line" href="https://line.me/ti/p/~benettonfeng" target="_blank" rel="noopener">LINE 討論需求</a>
         <a class="btn btn-outline" href="#services">查看服務與案例</a>
+        <a class="btn btn-outline" href="https://benettonfeng.github.io/shuying-ai/card.html">查看我的數位名片</a>
       </div>
     </div>
     <!-- Hero 主視覺：AI 教學設計工作台（首屏圖不做 lazy load） -->
@@ -608,6 +718,49 @@ footer .brand-ft{color:#C9D4E4;font-family:var(--serif);font-weight:700}
       <img src="method-flow.png" alt="Shu Ying 的四步驟 AI 教學設計流程：課前訪談、客製教材、步驟化實作、帶走範本" loading="lazy">
     </div>
     <div class="note reveal">每一梯課程結束後，我會以匿名問卷收集回饋，實際用於下一次的教材與教學調整——回饋不是課程的句點，而是下一堂課的起點。</div>
+  </div>
+</section>
+
+<!-- ===================== ③b Shu Ying AI 服務地圖 ===================== -->
+<section class="svcmap" id="service-map">
+  <div class="container">
+    <div class="eyebrow">Service Map</div>
+    <h2>從不同需求出發，找到適合的 AI 學習路徑</h2>
+    <p class="lead">
+      每個人接觸 AI 的起點不同：有些團隊想提升工作效率，有些個人想學會工具，有些顧問需要被客戶搜尋到，
+      有些社區希望讓長輩安心入門。我會依照對象、程度與工作情境，把 AI 轉成能理解、能練習、能帶回現場使用的步驟。
+    </p>
+    <div class="map-stage reveal">
+      <div class="map-center">
+        <span class="mc-title">Shu Ying<br>AI 教學顧問</span>
+        <span class="mc-sub">企業實務 × AI 教學 × 教學轉譯</span>
+      </div>
+      <a class="map-node n1" href="#svc-biz">
+        <span class="mn-dot" aria-hidden="true"></span>
+        <span class="mn-title">企業 AI 客製內訓</span>
+        <span class="mn-desc">讓團隊把 AI 用回日常流程</span>
+      </a>
+      <a class="map-node n2" href="#svc-biz">
+        <span class="mn-dot" aria-hidden="true"></span>
+        <span class="mn-title">職場 AI 工作流設計</span>
+        <span class="mn-desc">整理文件、回覆、摘要與範本</span>
+      </a>
+      <a class="map-node n3" href="#svc-coaching">
+        <span class="mn-dot" aria-hidden="true"></span>
+        <span class="mn-title">AI 個人家教與實作陪跑</span>
+        <span class="mn-desc">用自己的題目一步一步練習</span>
+      </a>
+      <a class="map-node n4" href="#svc-web">
+        <span class="mn-dot" aria-hidden="true"></span>
+        <span class="mn-title">AI 協作網站與數位名片</span>
+        <span class="mn-desc">讓專業被搜尋、理解與聯絡</span>
+      </a>
+      <a class="map-node n5" href="#svc-community">
+        <span class="mn-dot" aria-hidden="true"></span>
+        <span class="mn-title">樂齡與社區手機 AI 課程</span>
+        <span class="mn-desc">用放慢節奏安心入門</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -885,7 +1038,7 @@ footer .brand-ft{color:#C9D4E4;font-family:var(--serif);font-weight:700}
     </details>
     <details class="faq">
       <summary>適合多少人參加？</summary>
-      <div class="a">實作型課程建議 30 人以內，我才能照顧到每位學員的操作進度；純講座形式人數可以更多。實際規模我們可以依課程目標一起討論。</div>
+      <div class="a">實作型課程建議 15 人以內，這樣我才能照顧到每位學員的操作進度與提問。若超過 15 人且仍希望實作，建議先透過課前問卷了解學員程度，再依能力分班，每班以 15 人以內為佳。若主辦單位希望同一場安排較多人實作，建議安排 1～2 位具備基礎 AI 操作能力的內部課程協作人員，協助學員跟上課堂步驟、處理操作卡關與簡單提問。若不安排分班或協作人員，則建議改為講座／示範型課程。實際人數與形式可依課程目標、場地設備、學員程度與主辦單位資源一起討論。</div>
     </details>
     <details class="faq">
       <summary>上課地點與形式？</summary>
@@ -893,19 +1046,31 @@ footer .brand-ft{color:#C9D4E4;font-family:var(--serif);font-weight:700}
     </details>
     <details class="faq">
       <summary>員工完全沒有 AI 基礎，可以上嗎？</summary>
-      <div class="a">可以，而且這正是我最擅長的情況。我長期在社區教完全沒有基礎的長輩使用 AI——能把 AI 教會長輩，就能把 AI 教會任何程度的員工。課程節奏會依課前訪談的程度調查來設計。</div>
+      <div class="a">可以。課程會依照課前訪談與學員程度調整節奏。我長期帶領零基礎學員與樂齡學員學習 AI，因此很熟悉如何把工具拆成清楚步驟，協助不同程度的員工逐步上手。課程會從實際工作情境出發，讓學員不是只聽懂工具，而是能一步一步練習並帶回工作現場使用。</div>
     </details>
     <details class="faq">
       <summary>可以上一對一 AI 家教或實作陪跑嗎？</summary>
       <div class="a">可以。如果你是服裝服飾店老闆／老闆娘、土地代書、個人工作者、顧問、講師，或只是想用自己的題目一步一步學 AI，我可以安排一對一或小班制的 AI 實作陪跑。課程會依照你的需求設計，例如 ChatGPT／Gemini 基礎操作、NotebookLM 簡報與旅遊行程、商品介紹、店家貼文、專業資料整理、AI 分身與簡報播放等。重點是讓你用自己的任務練習，課後能繼續操作。</div>
     </details>
     <details class="faq">
+      <summary>可以協助改善 Excel 報價或資料整理流程嗎？</summary>
+      <div class="a">可以先從現有流程了解起。Shu Ying 具備近 30 年企業採購、供應商管理與流程文件經驗，能理解報價、供應商資料、採購文件與跨部門溝通的工作痛點。若企業目前仍以 Excel 手動整理報價或資料，可以先透過需求討論了解實際流程，再評估適合用 AI 協助摘要、整理、比對、產生初稿或建立可重複使用的工作步驟。</div>
+    </details>
+    <details class="faq">
+      <summary>可以幫我做網站或數位名片嗎？</summary>
+      <div class="a">可以。Shu Ying 可協助顧問、中小企業與個人品牌，以 AI 協作方式建立網站與數位名片。重點是讓客戶搜尋得到、看得懂、願意聯絡，而不只是做出漂亮頁面。可依需求規劃首頁文案、服務介紹、案例整理、SEO 基礎、聯絡入口與數位名片。</div>
+    </details>
+    <details class="faq">
       <summary>怎麼報價？流程是什麼？</summary>
-      <div class="a">第一步是免費的需求討論（LINE 或線上通話約 30 分鐘），了解你們的產業、對象與想解決的問題；接著我會提供課程規劃與報價提案，確認後安排課前訪談與開課。</div>
+      <div class="a">可先進行一次約 20～30 分鐘的需求討論，了解產業、對象與想解決的問題，再評估適合的課程或合作方式。若確認合作方向，再依需求提供課程規劃、報價提案與後續課前訪談安排。</div>
     </details>
     <details class="faq">
       <summary>課程內容會持續調整嗎？</summary>
       <div class="a">會。每一梯課程結束後，我都會以匿名問卷收集學員回饋，並實際用於下一次教學調整——例如近期學員反映操作示範節奏可以再放慢、投影字體可以再放大、AI 指令說明可以更逐步，這些都已納入教材與教學設計的修訂。對我來說，回饋不是課程的句點，而是下一堂課的起點。</div>
+    </details>
+    <details class="faq">
+      <summary>如果我不知道自己適合哪一種服務怎麼辦？</summary>
+      <div class="a">可以先從目前最困擾的一件事開始，例如：報價太慢、資料整理太花時間、想讓員工開始使用 AI、想學 ChatGPT／Gemini／NotebookLM、想做網站或數位名片、想幫店家做貼文。Shu Ying 會依照你的情況，協助判斷適合企業內訓、個人家教、網站協作、工作流程改善，或其他合作方式。</div>
     </details>
   </div>
 </section>
@@ -973,14 +1138,14 @@ footer .brand-ft{color:#C9D4E4;font-family:var(--serif);font-weight:700}
     <h2>想為你的團隊設計一堂真正用得上的 AI 課嗎？</h2>
     <p class="lead">
       第一步很簡單：用 LINE 告訴我你的產業、對象與想解決的問題，
-      我們先進行約 30 分鐘的<strong style="color:#fff">免費需求討論</strong>，我會協助你規劃合適的方向。
+      我們先進行一次約 20～30 分鐘的<strong style="color:#fff">需求討論</strong>，我會協助你評估合適的課程或合作方向。
     </p>
     <div class="contact-grid">
       <div>
         <div class="ways">
           <a class="way" href="https://line.me/ti/p/~benettonfeng" target="_blank" rel="noopener">
             <span class="w-icon">L</span>
-            <span><span class="w-label">LINE（回覆最快）</span><br><span class="w-value">加入 LINE，免費討論需求</span></span>
+            <span><span class="w-label">LINE（回覆最快）</span><br><span class="w-value">加入 LINE，聊聊你的需求</span></span>
           </a>
           <a class="way" href="tel:0919339504">
             <span class="w-icon">☎</span>
@@ -997,6 +1162,14 @@ footer .brand-ft{color:#C9D4E4;font-family:var(--serif);font-weight:700}
           <a class="way" href="https://www.facebook.com/profile.php?id=100065103249213" target="_blank" rel="noopener">
             <span class="w-icon">f</span>
             <span><span class="w-label">Facebook 粉絲頁</span><br><span class="w-value">檸檬手作｜教學動態與作品分享</span></span>
+          </a>
+          <a class="way" href="https://benettonfeng.github.io/shuying-ai/card.html">
+            <span class="w-icon">名</span>
+            <span>
+              <span class="w-label">數位名片</span><br>
+              <span class="w-value">查看 Shu Ying 數位名片</span><br>
+              <span class="w-sub">快速查看服務、聯絡方式與社群入口</span>
+            </span>
           </a>
         </div>
         <p class="promise">收到訊息後，我會在 1〜2 個工作日內回覆。所有討論內容均予保密。</p>
@@ -1061,5 +1234,227 @@ if(cta && contactSec && 'IntersectionObserver' in window){
 // 年份自動更新
 document.getElementById('year').textContent = new Date().getFullYear();
 </script>
+
+<!-- ============================================================
+     AI 小助手區塊開始
+     前端版 FAQ 智慧問答助手：無後端、無 API Key、無外部套件。
+     整個功能（CSS＋HTML＋JS）都在這個區塊內，方便日後尋找與修改。
+     ============================================================ -->
+<style>
+/* 浮動按鈕：手機時抬高避開底部 sticky 聯絡列 */
+.ai-fab{
+  position:fixed;right:14px;bottom:84px;z-index:400;
+  display:inline-flex;align-items:center;gap:8px;
+  min-height:48px;padding:12px 18px;border:0;cursor:pointer;
+  background:var(--ink);color:#fff;font-family:var(--sans);
+  font-size:.95rem;font-weight:700;border-radius:99px;
+  box-shadow:0 6px 18px rgba(35,58,92,.3);
+  transition:transform .15s,background .15s;
+}
+.ai-fab:hover{background:var(--ink-deep);transform:translateY(-2px)}
+.ai-fab .fab-dot{width:9px;height:9px;border-radius:50%;background:var(--gold);flex:none}
+/* 聊天視窗 */
+.ai-chat{
+  position:fixed;right:10px;bottom:148px;z-index:410;
+  width:calc(100vw - 20px);max-width:380px;
+  height:min(78vh, 620px);
+  display:none;flex-direction:column;
+  background:var(--paper);border:1px solid var(--line);
+  border-radius:16px;overflow:hidden;
+  box-shadow:0 18px 44px rgba(35,58,92,.28);
+}
+.ai-chat.open{display:flex}
+/* 歡迎文字（固定在標題下方） */
+.ai-welcome{
+  flex:none;padding:12px 14px 10px;
+  font-size:.86rem;color:var(--text);line-height:1.7;
+  border-bottom:1px dashed var(--line);
+}
+.ai-chat-head{
+  background:var(--ink);color:#fff;padding:14px 16px;
+  display:flex;align-items:flex-start;gap:12px;
+}
+.ai-chat-head .head-avatar{
+  width:38px;height:38px;border-radius:50%;overflow:hidden;flex:none;
+  border:2px solid var(--gold);background:#fff;
+}
+.ai-chat-head .head-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.ai-chat-head h3{font-family:var(--serif);color:#fff;font-size:1rem;line-height:1.4;margin:0}
+.ai-chat-head p{font-size:.76rem;color:#C9D4E4;line-height:1.5;margin:2px 0 0}
+.ai-chat-close{
+  margin-left:auto;flex:none;background:none;border:0;cursor:pointer;
+  color:#C9D4E4;font-size:1.3rem;line-height:1;padding:4px 6px;min-height:32px;
+}
+.ai-chat-close:hover{color:#fff}
+/* 回答訊息區：在問題選單下方，預設顯示最新回答 */
+.ai-msgs{
+  flex:1;overflow-y:auto;padding:12px 14px;
+  display:flex;flex-direction:column;gap:10px;min-height:90px;
+  border-top:1px dashed var(--line);
+}
+.ai-msgs:empty::after{
+  content:"回答會顯示在這裡";
+  margin:auto;font-size:.8rem;color:#B9B3A6;
+}
+.ai-msg{
+  max-width:86%;padding:10px 14px;border-radius:12px;
+  font-size:.88rem;line-height:1.75;
+}
+.ai-msg.bot{
+  align-self:flex-start;background:#fff;color:var(--text);
+  border:1px solid var(--line);border-bottom-left-radius:4px;
+}
+.ai-msg.user{
+  align-self:flex-end;background:var(--ink);color:#fff;
+  border-bottom-right-radius:4px;
+}
+/* 問題選單：直式排列，選單過長時內部上下捲動 */
+.ai-chips{
+  flex:none;padding:10px 12px;
+  display:flex;flex-direction:column;gap:8px;
+  max-height:190px;overflow-y:auto;overflow-x:hidden;
+}
+.ai-chips::-webkit-scrollbar{width:4px}
+.ai-chips::-webkit-scrollbar-thumb{background:var(--line);border-radius:2px}
+.ai-chip{
+  width:100%;text-align:left;
+  background:#fff;border:1px solid var(--sage);color:var(--ink);
+  font-family:var(--sans);font-size:.86rem;font-weight:500;
+  padding:10px 14px;border-radius:12px;cursor:pointer;min-height:42px;
+  line-height:1.5;white-space:normal;
+  transition:background .15s;
+}
+.ai-chip:hover{background:var(--sage-soft)}
+/* 底部聯絡 CTA（精簡版） */
+.ai-cta{
+  flex:none;background:var(--gold-soft);border-top:1px solid #EBD9AE;
+  padding:8px 10px;
+}
+.ai-cta p{font-size:.76rem;color:#6B5A2E;line-height:1.5;margin:0 0 6px}
+.ai-cta-btns{display:flex;gap:8px}
+.ai-cta-btns a{
+  flex:1;display:flex;align-items:center;justify-content:center;
+  min-height:36px;border-radius:8px;font-size:.82rem;font-weight:700;
+}
+.ai-cta-btns .c-line{background:#06C755;color:#fff}
+.ai-cta-btns .c-tel{background:var(--ink);color:#fff}
+.ai-cta-btns .c-mail{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
+/* 桌機：貼近右下角（桌機沒有 sticky 聯絡列） */
+@media(min-width:768px){
+  .ai-fab{right:24px;bottom:24px}
+  .ai-chat{right:24px;bottom:88px;width:380px}
+}
+@media(prefers-reduced-motion:reduce){
+  .ai-fab{transition:none}
+  .ai-fab:hover{transform:none}
+}
+</style>
+
+<button class="ai-fab" id="aiFab" aria-label="開啟 AI 小助手" aria-expanded="false">
+  <span class="fab-dot" aria-hidden="true"></span>AI 小助手
+</button>
+
+<div class="ai-chat" id="aiChat" role="dialog" aria-label="Shu Ying AI 小助手">
+  <div class="ai-chat-head">
+    <div class="head-avatar"><img src="avatar.png" alt=""></div>
+    <div>
+      <h3>Shu Ying AI 小助手</h3>
+      <p>可以先看看常見問題，我會幫你找到適合的服務方向。</p>
+    </div>
+    <button class="ai-chat-close" id="aiClose" aria-label="關閉小助手">×</button>
+  </div>
+  <div class="ai-welcome">你好，我是 Shu Ying AI 小助手。你可以點選下方問題，了解企業 AI 內訓、AI 個人家教、網站與數位名片、樂齡 AI 課程等服務。</div>
+  <div class="ai-chips" id="aiChips"></div>
+  <div class="ai-msgs" id="aiMsgs" aria-live="polite"></div>
+  <div class="ai-cta">
+    <p>想聊聊需求？</p>
+    <div class="ai-cta-btns">
+      <a class="c-line" href="https://line.me/ti/p/~benettonfeng" target="_blank" rel="noopener">LINE</a>
+      <a class="c-tel" href="tel:0919339504" title="手機點擊可直接撥打">電話</a>
+      <a class="c-mail" href="mailto:benettonfeng@gmail.com">Email</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ---------- 常見問題資料 ----------
+  const FAQ = [
+    {label:"提供哪些 AI 課程？", q:"你們提供哪些 AI 課程？",
+     a:"Shu Ying 目前提供企業 AI 客製內訓、職場 AI 工作流設計、AI 個人家教與實作陪跑、AI 協作網站與數位名片、樂齡與社區手機 AI 課程。課程會依照對象程度與實際需求設計，不只是介紹工具，而是協助學員把 AI 用回工作與生活情境。"},
+    {label:"企業內訓適合什麼公司？", q:"企業 AI 內訓適合什麼公司？",
+     a:"適合想讓員工開始使用 ChatGPT、Gemini、NotebookLM 等工具的中小企業、傳統產業、B2B 公司、行政團隊、業務團隊與需要提升文件整理、客戶回覆、資料摘要、簡報製作效率的團隊。課程可以從公司實際工作流程出發設計。"},
+    {label:"Excel 報價／資料整理", q:"可以協助改善 Excel 報價或資料整理流程嗎？",
+     a:"可以。Shu Ying 具備近 30 年企業採購、供應商管理與流程文件經驗，能理解報價、供應商資料、採購文件與跨部門溝通的工作痛點。若企業目前仍以 Excel 手動整理報價或資料，可以先透過訪談了解流程，再評估適合用 AI 協助摘要、整理、比對、產生初稿或建立工作步驟。"},
+    {label:"一對一 AI 家教", q:"有提供一對一 AI 家教嗎？",
+     a:"有。適合服裝服飾店老闆娘、土地代書、顧問、講師、個人工作者、接案者，或想用自己的題目一步一步學 AI 的成人學員。內容可以包含 ChatGPT、Gemini、NotebookLM、AI 分身、商品介紹、店家貼文、簡報製作、旅遊行程、資料整理等。"},
+    {label:"網站與數位名片", q:"可以幫我做網站或數位名片嗎？",
+     a:"可以。Shu Ying 可協助顧問、中小企業與個人品牌，以 AI 協作方式建立網站與數位名片，重點是讓客戶搜尋得到、看得懂、願意聯絡。可依需求規劃首頁文案、服務介紹、案例整理、SEO 基礎與聯絡入口。"},
+    {label:"樂齡課程適合誰？", q:"樂齡手機 AI 課程適合誰？",
+     a:"適合社區、里民課程、樂齡學習、主婦聯盟、長輩手機 AI 入門。課程節奏會放慢，使用生活化語言與一步一步示範，讓學員從語音輸入、AI 安全觀念、圖片創作、生活應用開始學習。"},
+    {label:"課程可以客製嗎？", q:"上課可以客製嗎？",
+     a:"可以。Shu Ying 的課程會依照企業或學員需求調整，例如企業文件、客戶回覆、商品情境圖、NotebookLM 簡報、AI 圖像、網站內容、報價流程、資料整理等。課前可先簡單訪談，再設計適合的課程內容。"},
+    {label:"適合多少人？", q:"AI 實作課適合多少人參加？",
+     a:"實作型課程建議 15 人以內，這樣我才能照顧到每位學員的操作進度與提問。若超過 15 人且仍希望實作，建議先透過課前問卷了解學員程度，再依能力分班，每班以 15 人以內為佳。若主辦單位希望同一場安排較多人實作，建議安排 1～2 位具備基礎 AI 操作能力的內部課程協作人員，協助學員跟上課堂步驟、處理操作卡關與簡單提問。若不安排分班或協作人員，則建議改為講座／示範型課程。實際形式可依課程目標、場地設備與學員程度討論。"},
+    {label:"如何聯絡？", q:"如何聯絡 Shu Ying？",
+     a:"你可以透過網站上的 LINE、手機或 Email 聯絡。若是企業課程、AI 家教、網站與數位名片合作，建議先簡單說明你的需求、對象、人數、希望時間與目前遇到的問題，Shu Ying 會再回覆適合的合作方式。"},
+    {label:"收費方式", q:"收費方式怎麼算？",
+     a:"費用會依服務類型、課程時數、客製程度與合作內容評估。一般可先從需求訪談開始，了解是企業內訓、個人家教、網站製作、還是工作流程改善，再提供合適方案。若只是單純加強既有流程，可先做小範圍評估。"},
+    {label:"不知道選哪種服務", q:"如果我不知道自己適合哪一種服務怎麼辦？",
+     a:"可以先從目前最困擾的一件事開始，例如：報價太慢、資料整理太花時間、想學 ChatGPT、想做網站、想讓員工開始使用 AI、想幫店家做貼文。Shu Ying 會依照你的情況，建議適合的學習或合作方向。"}
+  ];
+
+  const fab = document.getElementById('aiFab');
+  const chat = document.getElementById('aiChat');
+  const closeBtn = document.getElementById('aiClose');
+  const msgs = document.getElementById('aiMsgs');
+  const chips = document.getElementById('aiChips');
+
+  // ---------- 建立問題選單 ----------
+  FAQ.forEach(item=>{
+    const b = document.createElement('button');
+    b.className = 'ai-chip';
+    b.type = 'button';
+    b.textContent = item.label;
+    b.addEventListener('click', ()=>ask(item));
+    chips.appendChild(b);
+  });
+
+  // ---------- 訊息工具 ----------
+  function addMsg(text, who){
+    const d = document.createElement('div');
+    d.className = 'ai-msg ' + who;
+    d.textContent = text;          // textContent 確保安全，不解析 HTML
+    msgs.appendChild(d);
+    msgs.scrollTop = msgs.scrollHeight;
+    return d;
+  }
+
+  function ask(item){
+    addMsg(item.q, 'user');
+    const typing = addMsg('輸入中…', 'bot');
+    setTimeout(()=>{
+      typing.textContent = item.a;
+      msgs.scrollTop = msgs.scrollHeight;   // 自動捲到最新回答
+    }, 420);
+  }
+
+  // ---------- 開關視窗 ----------
+  function openChat(){
+    chat.classList.add('open');
+    fab.setAttribute('aria-expanded','true');
+  }
+  function closeChat(){
+    chat.classList.remove('open');
+    fab.setAttribute('aria-expanded','false');
+  }
+  fab.addEventListener('click', ()=> chat.classList.contains('open') ? closeChat() : openChat());
+  closeBtn.addEventListener('click', closeChat);
+  document.addEventListener('keydown', e=>{ if(e.key === 'Escape') closeChat(); });
+})();
+</script>
+<!-- ============================================================
+     AI 小助手區塊結束
+     ============================================================ -->
 </body>
 </html>
