@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://benettonfeng.github.io/shuying-ai/sitemap.xml
